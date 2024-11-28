@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DataPage</class>
+ <widget class="QWidget" name="DataPage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>50</y>
+     <width>62</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Data</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="menuButton">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>120</y>
+     <width>111</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back to menu</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
