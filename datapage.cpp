@@ -15,5 +15,5 @@ DataPage::~DataPage()
 }
 
 void DataPage::menuButtonClicked() {
-    emit backToMenu(); // signal to  MainWindow
+    emit backToMenu();
 }

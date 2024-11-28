@@ -5,6 +5,8 @@
 #include <QStackedWidget>
 #include "menupage.h"
 #include "datapage.h"
+#include "profilepage.h"
+#include "scanpage.h"
 #include "defs.h"
 
 QT_BEGIN_NAMESPACE
@@ -23,11 +25,13 @@ private:
     Ui::MainWindow *ui;
     MenuPage* menuPage;
     DataPage* dataPage;
+    ProfilePage* profilePage;
+    ScanPage* scanPage;
 
-public slots: // change to private?
-    void showAddProfile();
-    void showMenu();
-    //void showScan();
-    //void showData();
+private slots: // change to private?
+    void showProfilePage();
+    void showMenuPage();
+    void showDataPage();
+    void showScanPage();
 };
 #endif // MAINWINDOW_H

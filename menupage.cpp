@@ -7,13 +7,11 @@ MenuPage::MenuPage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    // connect
+    // set up main menu navigation buttons
     connect(ui->addProfileButton, &QPushButton::released, this, &MenuPage::addProfileButtonClicked);
-    /*
-    connect(ui->switchProfileButton, &QPushButton::released, this, &MenuPage::switchProfile);
-    connect(ui->scanButton, &QPushButton::released, this, &MenuPage::scan);
-    connect(ui->viewDataButton, &QPushButton::released, this, &MenuPage::viewData);
-    */
+    connect(ui->viewDataButton, &QPushButton::released, this, &MenuPage::dataButtonClicked);
+    connect(ui->scanButton, &QPushButton::released, this, &MenuPage::scanButtonClicked);
+
 }
 
 MenuPage::~MenuPage()
@@ -22,21 +20,13 @@ MenuPage::~MenuPage()
 }
 
 void MenuPage::addProfileButtonClicked() {
-    emit addProfile(); // signal to  MainWindow
+    emit addProfile();
 }
 
-/*
-void MenuPage::switchProfile() {
-
+void MenuPage::dataButtonClicked() {
+    emit viewData();
 }
 
-
-void MenuPage::scan() {
-
+void MenuPage::scanButtonClicked() {
+    emit scan();
 }
-
-
-void MenuPage::viewData() {
-
-}
-*/

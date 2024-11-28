@@ -8,20 +8,31 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // create instances of all winndows
+    // create instances of all pages
     menuPage = new MenuPage(this);
     dataPage = new DataPage(this);
+    profilePage = new ProfilePage(this);
+    scanPage = new ScanPage(this);
 
-    // connect
-    connect(menuPage,  &MenuPage::addProfile, this, &MainWindow::showAddProfile);
-    connect(dataPage,  &DataPage::backToMenu, this, &MainWindow::showMenu);
+    // set up page navigation functions:
+
+    // outgoing from menu
+    connect(menuPage,  &MenuPage::addProfile, this, &MainWindow::showProfilePage);
+    connect(menuPage,  &MenuPage::viewData, this, &MainWindow::showDataPage);
+    connect(menuPage,  &MenuPage::scan, this, &MainWindow::showScanPage);
+    // other
+    connect(dataPage,  &DataPage::backToMenu, this, &MainWindow::showMenuPage);
+    connect(profilePage,  &ProfilePage::backToMenu, this, &MainWindow::showMenuPage);
+    connect(scanPage,  &ScanPage::viewResults, this, &MainWindow::showDataPage);
 
     // add pages to stackedWidget
     ui->stackedWidget->addWidget(menuPage);
     ui->stackedWidget->addWidget(dataPage);
+    ui->stackedWidget->addWidget(profilePage);
+    ui->stackedWidget->addWidget(scanPage);
 
     // set default
-    ui->stackedWidget->setCurrentWidget(menuPage);
+    ui->stackedWidget->setCurrentWidget(profilePage);
 }
 
 MainWindow::~MainWindow()
@@ -31,21 +42,21 @@ MainWindow::~MainWindow()
     delete dataPage;
 }
 
-void MainWindow::showAddProfile() {
-    ui->stackedWidget->setCurrentWidget(dataPage);
+// page navigation
+
+void MainWindow::showProfilePage() {
+    ui->stackedWidget->setCurrentWidget(profilePage);
 }
 
-void MainWindow::showMenu() {
+void MainWindow::showMenuPage() {
     ui->stackedWidget->setCurrentWidget(menuPage);
 }
 
-/*
-void MainWindow::showScan() {
-    cout << "showing scan";
+void MainWindow::showDataPage() {
+    ui->stackedWidget->setCurrentWidget(dataPage);
 }
 
-void MainWindow::showData() {
-    cout << "showing data";
+void MainWindow::showScanPage() {
+    ui->stackedWidget->setCurrentWidget(scanPage);
 }
-*/
 

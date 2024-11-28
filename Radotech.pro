@@ -12,18 +12,24 @@ SOURCES += \
     datapage.cpp \
     main.cpp \
     mainwindow.cpp \
-    menupage.cpp
+    menupage.cpp \
+    profilepage.cpp \
+    scanpage.cpp
 
 HEADERS += \
     datapage.h \
     defs.h \
     mainwindow.h \
-    menupage.h
+    menupage.h \
+    profilepage.h \
+    scanpage.h
 
 FORMS += \
     datapage.ui \
     mainwindow.ui \
-    menupage.ui
+    menupage.ui \
+    profilepage.ui \
+    scanpage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

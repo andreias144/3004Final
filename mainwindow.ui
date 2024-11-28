@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>467</width>
-    <height>340</height>
+    <width>395</width>
+    <height>328</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>RaDoTech Application                                        Battery: 100%</string>
+     <string>RaDoTech Application                          Battery: 100%</string>
     </property>
    </widget>
   </widget>
@@ -59,7 +59,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>467</width>
+     <width>395</width>
      <height>22</height>
     </rect>
    </property>

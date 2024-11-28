@@ -21,12 +21,13 @@ private:
 
 signals:
     void addProfile();
-    //void switchProfile();
-    //void scan();
-    //void viewData();
+    void viewData();
+    void scan();
 
 private slots:
     void addProfileButtonClicked();
+    void dataButtonClicked();
+    void scanButtonClicked();
 };
 
 #endif // MENUPAGE_H
