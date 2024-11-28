@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QStackedWidget>
+#include "menupage.h"
+#include "datapage.h"
+#include "defs.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,5 +21,13 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    MenuPage* menuPage;
+    DataPage* dataPage;
+
+public slots: // change to private?
+    void showAddProfile();
+    void showMenu();
+    //void showScan();
+    //void showData();
 };
 #endif // MAINWINDOW_H
