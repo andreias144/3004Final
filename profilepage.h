@@ -2,6 +2,7 @@
 #define PROFILEPAGE_H
 
 #include <QWidget>
+#include <QString>
 
 namespace Ui {
 class ProfilePage;
@@ -23,6 +24,9 @@ signals:
 
 private slots:
     void doneButtonClicked();
+    void saveProfileData(const QString& profileName, int age, double height, double weight);
+    bool isProfileNameUnique(const QString& profileName);
+    int getProfileCount();
 };
 
 #endif // PROFILEPAGE_H
