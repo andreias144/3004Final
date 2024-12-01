@@ -19,10 +19,14 @@ SOURCES += \
     profile.cpp \
     profilepage.cpp \
     radotechdevice.cpp \
+<<<<<<< HEAD
     scan.cpp \
     scanner.cpp \
     scanpage.cpp \
     switchprofilepage.cpp
+=======
+    scanpage.cpp
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
 
 HEADERS += \
     AppManager.h \
@@ -35,10 +39,14 @@ HEADERS += \
     profile.h \
     profilepage.h \
     radotechdevice.h \
+<<<<<<< HEAD
     scan.h \
     scanner.h \
     scanpage.h \
     switchprofilepage.h
+=======
+    scanpage.h
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
 
 FORMS += \
     datapage.ui \

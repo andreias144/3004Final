@@ -20,12 +20,41 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
 
     this->batteryIndicator = batteryIndicator;
 
+<<<<<<< HEAD
 
     // call performScan on Scanner (TODO)
     // this pregenerates the data
 
     // advance the scan to point 1:
     emit nextPoint();
+=======
+    ui->handView->setScene(&handScene);
+    handScene.setSceneRect(pixmapItem->sceneBoundingRect());
+    ui->handView->show();
+
+
+    // set up stackedWidget
+    ui->stackedWidget->setCurrentWidget(ui->duringScan);
+
+    //Set up skin status
+    connect(ui->skinToggleButton, &QPushButton::released, this, [this]() {
+
+        //If the device is on the skin after being toggled
+        if (device->toggleOnSkin()) {
+
+            ui->skinToggleButton->setText("Remove off skin");
+            ui->skinStatus->setText("Current status : On skin");
+        }
+
+        //If the device is off the skin after being toggled
+        else {
+
+            ui->skinToggleButton->setText("Add on skin");
+            ui->skinStatus->setText("Current status : Off skin");
+            ui->stackedWidget->setCurrentWidget(ui->afterScan);
+        }
+    });
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
 }
 
 ScanPage::~ScanPage()

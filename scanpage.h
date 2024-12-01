@@ -9,8 +9,11 @@
 #include <QPixmap>
 #include "defs.h"
 #include "global.h"
+<<<<<<< HEAD
 #include "measurementpoint.h"
 #include <QLCDNumber>
+=======
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
 
 static const QPoint POINT_1(100, 200);
 static const QPoint POINT_2(300, 400);
