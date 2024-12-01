@@ -16,36 +16,23 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="header">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>30</x>
      <y>10</y>
-     <width>62</width>
-     <height>17</height>
+     <width>351</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Scan</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="resultsButton">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>260</y>
-     <width>101</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>View results</string>
+    <string>Follow the instructions below to complete your scan:</string>
    </property>
   </widget>
   <widget class="QGraphicsView" name="handView">
    <property name="geometry">
     <rect>
-     <x>80</x>
+     <x>20</x>
      <y>30</y>
      <width>225</width>
      <height>225</height>
@@ -83,6 +70,82 @@
    </property>
    <property name="interactive">
     <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>361</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <widget class="QWidget" name="afterScan">
+    <widget class="QPushButton" name="resultsButton">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>0</y>
+       <width>101</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>View results</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="duringScan"/>
+  </widget>
+  <widget class="QLabel" name="instructions">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>30</y>
+     <width>121</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Point 1&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Please place the device on the displayed point. When you're done, remove the device from your skin.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="point">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>110</y>
+     <width>21</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>25</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(167, 50, 50)</string>
+   </property>
+   <property name="text">
+    <string>•</string>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-7</y>
+     <width>401</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>

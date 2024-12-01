@@ -9,7 +9,6 @@
 #include <QPixmap>
 #include "defs.h"
 
-
 namespace Ui {
 class ScanPage;
 }
