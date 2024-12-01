@@ -10,18 +10,22 @@ CONFIG += c++11
 
 SOURCES += \
     datapage.cpp \
+    global.cpp \
     main.cpp \
     mainwindow.cpp \
     menupage.cpp \
     profilepage.cpp \
+    radotechdevice.cpp \
     scanpage.cpp
 
 HEADERS += \
     datapage.h \
     defs.h \
+    global.h \
     mainwindow.h \
     menupage.h \
     profilepage.h \
+    radotechdevice.h \
     scanpage.h
 
 FORMS += \

@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "global.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -25,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(profilePage,  &ProfilePage::backToMenu, this, &MainWindow::showMenuPage);
     connect(scanPage,  &ScanPage::viewResults, this, &MainWindow::showDataPage);
 
+
     // add pages to stackedWidget
     ui->stackedWidget->addWidget(menuPage);
     ui->stackedWidget->addWidget(dataPage);
@@ -33,6 +35,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set default
     ui->stackedWidget->setCurrentWidget(profilePage);
+
+
+    //Set battery
+   ui->batteryIndicator->display(device->getBatteryLevel());
+
+
+
+
+
 }
 
 MainWindow::~MainWindow()
