@@ -12,7 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
     menuPage = new MenuPage(this);
     dataPage = new DataPage(this);
     profilePage = new ProfilePage(this);
+<<<<<<< HEAD
     scanPage = new ScanPage(this, ui->batteryIndicator);
+=======
+    scanPage = new ScanPage(this);
+>>>>>>> ef311ba (added switchprofilepage)
     switchProfilePage = new SwitchProfilePage(this);
 
     // set up page navigation functions:
@@ -22,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(menuPage,  &MenuPage::viewData, this, &MainWindow::showDataPage);
     connect(menuPage,  &MenuPage::scan, this, &MainWindow::showScanPage);
     connect(menuPage,  &MenuPage::switchProfile, this, &MainWindow::showSwitchProfilePage);
+<<<<<<< HEAD
     // other navigation
     connect(dataPage,  &DataPage::backToMenu, this, &MainWindow::showMenuPage);
     connect(profilePage,  &ProfilePage::backToMenu, this, &MainWindow::showMenuPage);
@@ -32,6 +37,13 @@ MainWindow::MainWindow(QWidget *parent)
     // set up other communication functions:
     connect(scanPage,  &ScanPage::nextPoint, this, &MainWindow::advancePoint);
     connect(scanPage,  &ScanPage::scanOver, this, &MainWindow::resetScan);
+=======
+    // other
+    connect(dataPage,  &DataPage::backToMenu, this, &MainWindow::showMenuPage);
+    connect(profilePage,  &ProfilePage::backToMenu, this, &MainWindow::showMenuPage);
+    connect(scanPage,  &ScanPage::viewResults, this, &MainWindow::showDataPage);
+    connect(switchProfilePage,  &SwitchProfilePage::backToMenu, this, &MainWindow::showMenuPage);
+>>>>>>> ef311ba (added switchprofilepage)
 
     // add pages to stackedWidget
     ui->stackedWidget->addWidget(menuPage);
@@ -99,5 +111,9 @@ void MainWindow::advancePoint() {
 
 void MainWindow::resetScan() {
     appManager->resetScan();
+}
+
+void MainWindow::showSwitchProfilePage() {
+    ui->stackedWidget->setCurrentWidget(switchProfilePage);
 }
 
