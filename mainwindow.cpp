@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->addWidget(scanPage);
 
     // set default
-    ui->stackedWidget->setCurrentWidget(profilePage);
+    ui->stackedWidget->setCurrentWidget(menuPage);
 }
 
 MainWindow::~MainWindow()
