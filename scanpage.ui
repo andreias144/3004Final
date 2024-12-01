@@ -85,7 +85,11 @@
     </rect>
    </property>
    <property name="currentIndex">
+<<<<<<< HEAD
     <number>1</number>
+=======
+    <number>0</number>
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
    </property>
    <widget class="QWidget" name="afterScan">
     <widget class="QPushButton" name="resultsButton">
@@ -106,9 +110,15 @@
     <widget class="QPushButton" name="skinToggleButton">
      <property name="geometry">
       <rect>
+<<<<<<< HEAD
        <x>30</x>
        <y>10</y>
        <width>111</width>
+=======
+       <x>40</x>
+       <y>0</y>
+       <width>101</width>
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
        <height>25</height>
       </rect>
      </property>
@@ -120,8 +130,13 @@
      <property name="geometry">
       <rect>
        <x>170</x>
+<<<<<<< HEAD
        <y>10</y>
        <width>191</width>
+=======
+       <y>0</y>
+       <width>171</width>
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
        <height>31</height>
       </rect>
      </property>

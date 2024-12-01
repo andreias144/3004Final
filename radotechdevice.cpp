@@ -13,7 +13,11 @@ int radoTechDevice::getBatteryLevel() {
 }
 
 int radoTechDevice::decreaseBatteryLevel() {
+<<<<<<< HEAD
     this->batteryLevel -= 2;
+=======
+    this->batteryLevel -= 20;
+>>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
 
     //If device is dead
     if (this->batteryLevel <= 0) {
