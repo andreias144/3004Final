@@ -8,6 +8,11 @@
 #include <QGraphicsPixmapItem>
 #include <QPixmap>
 #include "defs.h"
+#include "global.h"
+
+static const QPoint POINT_1(100, 200);
+static const QPoint POINT_2(300, 400);
+static const QPoint POINT_3(500, 600);
 
 namespace Ui {
 class ScanPage;

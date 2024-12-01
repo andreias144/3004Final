@@ -19,6 +19,29 @@ ScanPage::ScanPage(QWidget *parent) :
     ui->handView->setScene(&handScene);
     handScene.setSceneRect(pixmapItem->sceneBoundingRect());
     ui->handView->show();
+
+
+    // set up stackedWidget
+    ui->stackedWidget->setCurrentWidget(ui->duringScan);
+
+    //Set up skin status
+    connect(ui->skinToggleButton, &QPushButton::released, this, [this]() {
+
+        //If the device is on the skin after being toggled
+        if (device->toggleOnSkin()) {
+
+            ui->skinToggleButton->setText("Remove off skin");
+            ui->skinStatus->setText("Current status : On skin");
+        }
+
+        //If the device is off the skin after being toggled
+        else {
+
+            ui->skinToggleButton->setText("Add on skin");
+            ui->skinStatus->setText("Current status : Off skin");
+            ui->stackedWidget->setCurrentWidget(ui->afterScan);
+        }
+    });
 }
 
 ScanPage::~ScanPage()
