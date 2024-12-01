@@ -11,6 +11,7 @@ MenuPage::MenuPage(QWidget *parent) :
     connect(ui->addProfileButton, &QPushButton::released, this, &MenuPage::addProfileButtonClicked);
     connect(ui->viewDataButton, &QPushButton::released, this, &MenuPage::dataButtonClicked);
     connect(ui->scanButton, &QPushButton::released, this, &MenuPage::scanButtonClicked);
+    connect(ui->switchProfileButton, &QPushButton::released, this, &MenuPage::switchProfileButtonClicked);
 
 }
 
@@ -29,4 +30,8 @@ void MenuPage::dataButtonClicked() {
 
 void MenuPage::scanButtonClicked() {
     emit scan();
+}
+
+void MenuPage::switchProfileButtonClicked() {
+    emit switchProfile();
 }

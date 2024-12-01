@@ -16,7 +16,8 @@ SOURCES += \
     menupage.cpp \
     profilepage.cpp \
     radotechdevice.cpp \
-    scanpage.cpp
+    scanpage.cpp \
+    switchprofilepage.cpp
 
 HEADERS += \
     datapage.h \
@@ -26,14 +27,16 @@ HEADERS += \
     menupage.h \
     profilepage.h \
     radotechdevice.h \
-    scanpage.h
+    scanpage.h \
+    switchprofilepage.h
 
 FORMS += \
     datapage.ui \
     mainwindow.ui \
     menupage.ui \
     profilepage.ui \
-    scanpage.ui
+    scanpage.ui \
+    switchprofilepage.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

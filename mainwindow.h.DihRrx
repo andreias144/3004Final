@@ -35,6 +35,6 @@ private slots: // change to private?
     void showMenuPage();
     void showDataPage();
     void showScanPage();
-    void showSwitchProfilePage();
+    void shoSwitchProfilePage();
 };
 #endif // MAINWINDOW_H
