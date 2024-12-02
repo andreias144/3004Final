@@ -9,6 +9,7 @@
 #include <QPixmap>
 #include "defs.h"
 #include "global.h"
+#include "measurementpoint.h"
 
 static const QPoint POINT_1(100, 200);
 static const QPoint POINT_2(300, 400);
@@ -25,10 +26,11 @@ class ScanPage : public QWidget
 public:
     explicit ScanPage(QWidget *parent = nullptr);
     ~ScanPage();
+    void updateUI(MeasurementPoint, double);
 
 private:
     Ui::ScanPage *ui;
-    QGraphicsScene handScene;
+    QGraphicsScene scene;
 
 signals:
     void viewResults();

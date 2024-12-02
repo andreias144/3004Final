@@ -20,6 +20,8 @@ public:
 
     const std::vector<MeasurementPoint>& getMeasurementPoints() const;
 
+    MeasurementPoint getPointInfo(int);
+
 private:
     std::vector<std::unique_ptr<Profile>> profiles;
     Profile* activeProfile;

@@ -29,7 +29,7 @@
     <string>Follow the instructions below to complete your scan:</string>
    </property>
   </widget>
-  <widget class="QGraphicsView" name="handView">
+  <widget class="QGraphicsView" name="imageView">
    <property name="geometry">
     <rect>
      <x>50</x>

@@ -5,14 +5,20 @@
 #include <QPointF>
 
 class MeasurementPoint {
-public:
-    QString id;              // unique ID, e.g "H1L"
-    QString description;     // description, e.g. "Left Hand, Point 1"
-    QPointF position;        // Coordinates stored as QPoints for now
+    public:
+        QString id;              // unique ID, e.g "H1L"
+        QString description;     // description, e.g. "Left Hand, Point 1"
+        QPointF position;        // Coordinates stored as QPoints for now
+        QString imagePath;
 
-    //other properties like hand image etc...
+        //other properties like hand image etc...
 
-    MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos);
+        MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos, const QString& imagePath);
+
+        QString getID();
+        QString getDescription();
+        QPointF getPosition();
+        QString getImagePath();
 };
 
 #endif // MEASUREMENTPOINT_H

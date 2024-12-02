@@ -37,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set default
     ui->stackedWidget->setCurrentWidget(menuPage);
+
+    // set up appmanager
+    appManager = new AppManager();
 }
 
 MainWindow::~MainWindow()
@@ -44,6 +47,10 @@ MainWindow::~MainWindow()
     delete ui;
     delete menuPage;
     delete dataPage;
+    delete scanPage;
+    delete profilePage;
+    delete switchProfilePage;
+    delete appManager;
 }
 
 // page navigation
@@ -62,6 +69,7 @@ void MainWindow::showDataPage() {
 
 void MainWindow::showScanPage() {
     ui->stackedWidget->setCurrentWidget(scanPage);
+    scanPage->updateUI(appManager->getPointInfo(0), 2.0); // temp (this should be called every time the scan advances)
 }
 
 void MainWindow::showSwitchProfilePage() {

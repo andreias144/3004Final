@@ -11,12 +11,7 @@ ScanPage::ScanPage(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
 
-    // set up image (temp)
-    QPixmap handPixmap(":/images/imageLH.png");
-    QGraphicsPixmapItem *pixmapItem = handScene.addPixmap(handPixmap);
-    ui->handView->setScene(&handScene);
-    handScene.setSceneRect(pixmapItem->sceneBoundingRect());
-    ui->handView->show();
+
 
     // move dot to cordinate:
     // with every iteration of the scan, appmanager will call a function updateui() on scanpage,
@@ -49,6 +44,18 @@ ScanPage::ScanPage(QWidget *parent) :
 ScanPage::~ScanPage()
 {
     delete ui;
+}
+
+
+void ScanPage::updateUI(MeasurementPoint p, double data) {
+
+    // set up image (change this to only run when necessary)
+    QPixmap pixmap(p.getImagePath());
+    QGraphicsPixmapItem *pixmapItem = scene.addPixmap(pixmap);
+    ui->imageView->setScene(&scene);
+    scene.setSceneRect(pixmapItem->sceneBoundingRect());
+    ui->imageView->show();
+
 }
 
 

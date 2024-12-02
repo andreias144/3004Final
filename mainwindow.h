@@ -31,7 +31,7 @@ private:
     ScanPage* scanPage;
     SwitchProfilePage* switchProfilePage;
 
-    AppManager appManager;
+    AppManager* appManager;
 
 private slots: // change to private?
     void showProfilePage();
