@@ -15,6 +15,7 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     //Set up skin status
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
 
+<<<<<<< HEAD
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
@@ -28,10 +29,19 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     // advance the scan to point 1:
     emit nextPoint();
 =======
+=======
+    // set up image (temp)
+    QPixmap handPixmap(":/images/imageLH.png");
+    QGraphicsPixmapItem *pixmapItem = handScene.addPixmap(handPixmap);
+>>>>>>> 503b51a (added images, minor ui changes, some comments in scanpage.cpp)
     ui->handView->setScene(&handScene);
     handScene.setSceneRect(pixmapItem->sceneBoundingRect());
     ui->handView->show();
 
+    // move dot to cordinate:
+    // with every iteration of the scan, appmanager will call a function updateui() on scanpage,
+    //  which willl pass in  all of the info as parameters. No scan logic is managed in scanpage.
+    // the info can all be represented by a measurementpoint object and a double
 
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
@@ -63,6 +73,7 @@ ScanPage::~ScanPage()
 }
 
 
+<<<<<<< HEAD
 void ScanPage::updateUI(MeasurementPoint p, double data) {
 
 
@@ -129,4 +140,8 @@ void ScanPage::resultsButtonClicked() {
     ui->stackedWidget->setCurrentWidget(ui->duringScan); // reset stackedWidget
     emit viewResults();
 
+=======
+void ScanPage::resultsButtonClicked() {
+    emit viewResults();
+>>>>>>> 503b51a (added images, minor ui changes, some comments in scanpage.cpp)
 }
