@@ -59,6 +59,9 @@ void AppManager::initializeMeasurementPoints() {
 
     measurementPoints = {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
         {1, "Left Hand, Position 1", QPoint(80, 160), ":/images/imageLH.png"},
         {2, "Right Hand, Position 1", QPoint(90, 160), ":/images/imageRH.png"},
         {3, "Left Hand, Position 2", QPoint(80, 170), ":/images/imageLH.png"},
@@ -83,6 +86,7 @@ void AppManager::initializeMeasurementPoints() {
         {22, "Right Foot, Position 5", QPoint(30, 220), ":/images/imageRF.png"},
         {23, "Left Foot, Position 6", QPoint(10, 240), ":/images/imageLF.png"},
         {24, "Right Foot, Position 6", QPoint(30, 240), ":/images/imageRF.png"}
+<<<<<<< HEAD
     };
 
 }
@@ -154,6 +158,8 @@ void AppManager::resetScan() {
         {"F6L", "Left Foot, Point 6", QPoint(10, 240), ":/images/imageLF.png"},
         {"F6R", "Right Foot, Point 6", QPoint(30, 240), ":/images/imageRF.png"}
 >>>>>>> 665a168 (added variable dot position)
+=======
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
     };
 <<<<<<< HEAD
 >>>>>>> d456991 (basic structure implmented)

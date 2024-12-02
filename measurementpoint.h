@@ -26,14 +26,15 @@ public:
     QPointF position;        // Coordinates stored as QPoints for now
 =======
     public:
-        QString id;              // unique ID, e.g "H1L"
+        int id;              // unique ID, e.g "H1L"
         QString description;     // description, e.g. "Left Hand, Point 1"
-        QPoint position;        // Coordinates stored as QPoints for now
+        QPoint position;        // Coordinates stored as QPoints
         QString imagePath;
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
 
-        //other properties like hand image etc...
+        MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& imagePath);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos);
@@ -45,6 +46,9 @@ public:
 >>>>>>> 665a168 (added variable dot position)
 
         QString getID();
+=======
+        int getID();
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
         QString getDescription();
         QPoint getPosition();
         QString getImagePath();
