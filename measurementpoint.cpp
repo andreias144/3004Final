@@ -3,6 +3,7 @@
 #include "measurementpoint.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& path)
     : id(pointID), description(desc), position(pos), imagePath(path) {}
 
@@ -10,6 +11,9 @@ MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const
 int MeasurementPoint::getID() {
 =======
 MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos, const QString& path)
+=======
+MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPoint& pos, const QString& path)
+>>>>>>> 665a168 (added variable dot position)
     : id(pointID), description(desc), position(pos), imagePath(path) {}
 
 
@@ -23,10 +27,14 @@ QString MeasurementPoint::getDescription() {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 QPoint MeasurementPoint::getPosition() {
 =======
 QPointF MeasurementPoint::getPosition() {
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
+=======
+QPoint MeasurementPoint::getPosition() {
+>>>>>>> 665a168 (added variable dot position)
     return position;
 }
 
