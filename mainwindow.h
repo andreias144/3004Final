@@ -39,6 +39,8 @@ private:
 =======
 >>>>>>> ef311ba (added switchprofilepage)
 
+    AppManager appManager;
+
 private slots: // change to private?
     void showProfilePage();
     void showMenuPage();

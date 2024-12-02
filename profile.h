@@ -1,7 +1,11 @@
 #ifndef PROFILE_H
 #define PROFILE_H
 
+<<<<<<< HEAD
 #include "scan.h"
+=======
+#include "Scan.h"
+>>>>>>> d456991 (basic structure implmented)
 #include <vector>
 #include <QString>
 
