@@ -1,9 +1,15 @@
 #ifndef APPMANAGER_H
 #define APPMANAGER_H
 
+<<<<<<< HEAD
 #include "profile.h"
 #include "measurementpoint.h"
 #include "scanner.h"
+=======
+#include "Profile.h"
+#include "measurementpoint.h"#
+#include "Scanner.h"
+>>>>>>> d456991 (basic structure implmented)
 #include <vector>
 #include <memory>
 
@@ -14,17 +20,23 @@ public:
     void addProfile(const QString& name, int age, double height, double weight);
     void removeProfile(int index);
     void switchActiveProfile(int index);
+<<<<<<< HEAD
     bool advancePoint();
     int getCurrPoint();
     void resetScan();
+=======
+>>>>>>> d456991 (basic structure implmented)
 
     Profile* getActiveProfile() const;
     const std::vector<std::unique_ptr<Profile>>& getProfiles() const;
 
     const std::vector<MeasurementPoint>& getMeasurementPoints() const;
 
+<<<<<<< HEAD
     MeasurementPoint getPointInfo();
 
+=======
+>>>>>>> d456991 (basic structure implmented)
 private:
     std::vector<std::unique_ptr<Profile>> profiles;
     Profile* activeProfile;
@@ -33,8 +45,11 @@ private:
     void initializeMeasurementPoints();
 
     Scanner scanner;
+<<<<<<< HEAD
 
     int currScanPoint;
+=======
+>>>>>>> d456991 (basic structure implmented)
 };
 
 #endif // APPMANAGER_H

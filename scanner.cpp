@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #include "scanner.h"
+=======
+#include "Scanner.h"
+>>>>>>> d456991 (basic structure implmented)
 #include <QRandomGenerator>
 #include <cmath>
 
@@ -10,8 +14,11 @@ Scan Scanner::performScan(const std::vector<MeasurementPoint>& measurementPoints
     for (const auto& point : measurementPoints) {
         double value = generateValue(point, Profile);
         scan.values.push_back(value);
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d456991 (basic structure implmented)
     }
 
     return scan;

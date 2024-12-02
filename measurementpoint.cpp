@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #include "measurementpoint.h"
 
 MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& path)
@@ -19,3 +20,9 @@ QPoint MeasurementPoint::getPosition() {
 QString MeasurementPoint::getImagePath() {
     return imagePath;
 }
+=======
+#include "MeasurementPoint.h"
+
+MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos)
+    : id(pointID), description(desc), position(pos) {}
+>>>>>>> d456991 (basic structure implmented)

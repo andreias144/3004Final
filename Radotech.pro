@@ -21,6 +21,9 @@ SOURCES += \
     radotechdevice.cpp \
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d456991 (basic structure implmented)
     scan.cpp \
     scanner.cpp \
     scanpage.cpp \
@@ -46,6 +49,9 @@ HEADERS += \
     radotechdevice.h \
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d456991 (basic structure implmented)
     scan.h \
     scanner.h \
     scanpage.h \
