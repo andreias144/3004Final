@@ -151,7 +151,7 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="point">
+  <widget class="QLabel" name="dot">
    <property name="geometry">
     <rect>
      <x>80</x>

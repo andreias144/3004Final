@@ -1,6 +1,6 @@
 #include "measurementpoint.h"
 
-MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos, const QString& path)
+MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPoint& pos, const QString& path)
     : id(pointID), description(desc), position(pos), imagePath(path) {}
 
 
@@ -12,7 +12,7 @@ QString MeasurementPoint::getDescription() {
     return description;
 }
 
-QPointF MeasurementPoint::getPosition() {
+QPoint MeasurementPoint::getPosition() {
     return position;
 }
 

@@ -56,6 +56,9 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
     scene.setSceneRect(pixmapItem->sceneBoundingRect());
     ui->imageView->show();
 
+    // change dot position
+    ui->dot->move(p.getPosition());
+
 }
 
 
