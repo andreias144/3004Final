@@ -11,6 +11,7 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
 {
     ui->setupUi(this);
 
+<<<<<<< HEAD
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
     //Set up skin status
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
@@ -37,6 +38,9 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     ui->handView->setScene(&handScene);
     handScene.setSceneRect(pixmapItem->sceneBoundingRect());
     ui->handView->show();
+=======
+
+>>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
 
     // move dot to cordinate:
     // with every iteration of the scan, appmanager will call a function updateui() on scanpage,
@@ -74,6 +78,7 @@ ScanPage::~ScanPage()
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 void ScanPage::updateUI(MeasurementPoint p, double data) {
 
 
@@ -96,12 +101,18 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
 
     // set up image (change this to only run when necessary)
     scene.clear();
+=======
+void ScanPage::updateUI(MeasurementPoint p, double data) {
+
+    // set up image (change this to only run when necessary)
+>>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
     QPixmap pixmap(p.getImagePath());
     QGraphicsPixmapItem *pixmapItem = scene.addPixmap(pixmap);
     ui->imageView->setScene(&scene);
     scene.setSceneRect(pixmapItem->sceneBoundingRect());
     ui->imageView->show();
 
+<<<<<<< HEAD
     // change dot position
     ui->dot->move(p.getPosition());
 
@@ -141,6 +152,11 @@ void ScanPage::resultsButtonClicked() {
     emit viewResults();
 
 =======
+=======
+}
+
+
+>>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
 void ScanPage::resultsButtonClicked() {
     emit viewResults();
 >>>>>>> 503b51a (added images, minor ui changes, some comments in scanpage.cpp)
