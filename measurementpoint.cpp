@@ -1,10 +1,10 @@
 #include "measurementpoint.h"
 
-MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPoint& pos, const QString& path)
+MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& path)
     : id(pointID), description(desc), position(pos), imagePath(path) {}
 
 
-QString MeasurementPoint::getID() {
+int MeasurementPoint::getID() {
     return id;
 }
 

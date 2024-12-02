@@ -14,15 +14,13 @@ ScanPage::ScanPage(QWidget *parent) :
     //Set up skin status
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
 
-
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
     // call performScan on Scanner (TODO)
     // this pregenerates the data
 
-    // start scan
-
+    // advance the scan to point 1:
     emit nextPoint();
 }
 
@@ -45,6 +43,10 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
     // change dot position
     ui->dot->move(p.getPosition());
 
+    // update point name
+    QString text = "Point " + QString::number(p.getID());
+    ui->pointName->setText(text);
+
 }
 
 
@@ -62,7 +64,6 @@ void ScanPage::deviceToggled() {
         ui->skinToggleButton->setText("Add on skin");
         ui->skinStatus->setText("Current status : Off skin");
         emit nextPoint();
-        //ui->stackedWidget->setCurrentWidget(ui->afterScan); // temp
     }
 
 }
