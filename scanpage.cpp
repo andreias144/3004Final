@@ -20,6 +20,7 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
@@ -53,12 +54,15 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
 
 =======
 >>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
+=======
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
     // call performScan on Scanner (TODO)
     // this pregenerates the data
 
+<<<<<<< HEAD
     // start scan
 
 <<<<<<< HEAD
@@ -76,6 +80,9 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     });
 >>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
 =======
+=======
+    // advance the scan to point 1:
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
     emit nextPoint();
 >>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 }
@@ -151,6 +158,7 @@ void ScanPage::deviceToggled() {
         ui->skinToggleButton->setText("Add on skin");
         ui->skinStatus->setText("Current status : Off skin");
         emit nextPoint();
+<<<<<<< HEAD
     }
 
 }
@@ -182,6 +190,8 @@ void ScanPage::deviceToggled() {
         ui->skinStatus->setText("Current status : Off skin");
         emit nextPoint();
         //ui->stackedWidget->setCurrentWidget(ui->afterScan); // temp
+=======
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
     }
 
 }

@@ -4,6 +4,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& path)
     : id(pointID), description(desc), position(pos), imagePath(path) {}
 
@@ -19,6 +20,13 @@ MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, 
 
 QString MeasurementPoint::getID() {
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
+=======
+MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& path)
+    : id(pointID), description(desc), position(pos), imagePath(path) {}
+
+
+int MeasurementPoint::getID() {
+>>>>>>> bbbc7df (scan loop working with a few bugs (but it doesn't crash))
     return id;
 }
 
