@@ -1,9 +1,9 @@
 #ifndef SCANNER_H
 #define SCANNER_H
 
-#include "Scan.h"
-#include "MeasurementPoint.h"
-#include "Profile.h"
+#include "scan.h"
+#include "measurementpoint.h"
+#include "profile.h"
 #include <vector>
 
 class Scanner {

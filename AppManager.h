@@ -1,9 +1,9 @@
 #ifndef APPMANAGER_H
 #define APPMANAGER_H
 
-#include "Profile.h"
-#include "measurementpoint.h"#
-#include "Scanner.h"
+#include "profile.h"
+#include "measurementpoint.h"
+#include "scanner.h"
 #include <vector>
 #include <memory>
 

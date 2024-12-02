@@ -1,4 +1,4 @@
-#include "Scanner.h"
+#include "scanner.h"
 #include <QRandomGenerator>
 #include <cmath>
 

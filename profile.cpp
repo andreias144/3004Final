@@ -1,4 +1,4 @@
-#include "Profile.h"
+#include "profile.h"
 #include <QDateTime>
 #include <QRandomGenerator>
 
