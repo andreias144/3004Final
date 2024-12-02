@@ -113,6 +113,7 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
     ui->imageView->show();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     // change dot position
     ui->dot->move(p.getPosition());
 
@@ -143,6 +144,11 @@ void ScanPage::deviceToggled() {
 
 void ScanPage::lastPoint() {
     ui->stackedWidget->setCurrentWidget(ui->afterScan);
+=======
+    // change dot position
+    ui->dot->move(p.getPosition());
+
+>>>>>>> 665a168 (added variable dot position)
 }
 
 
