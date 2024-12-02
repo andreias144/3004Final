@@ -27,6 +27,7 @@ public:
     explicit ScanPage(QWidget *parent = nullptr);
     ~ScanPage();
     void updateUI(MeasurementPoint, double);
+    void lastPoint();
 
 private:
     Ui::ScanPage *ui;
@@ -34,9 +35,12 @@ private:
 
 signals:
     void viewResults();
+    void nextPoint();
+    void scanOver();
 
 private slots:
     void resultsButtonClicked();
+    void deviceToggled();
 };
 
 #endif // SCANPAGE_H

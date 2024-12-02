@@ -22,11 +22,15 @@ MainWindow::MainWindow(QWidget *parent)
     connect(menuPage,  &MenuPage::viewData, this, &MainWindow::showDataPage);
     connect(menuPage,  &MenuPage::scan, this, &MainWindow::showScanPage);
     connect(menuPage,  &MenuPage::switchProfile, this, &MainWindow::showSwitchProfilePage);
-    // other
+    // other navigation
     connect(dataPage,  &DataPage::backToMenu, this, &MainWindow::showMenuPage);
     connect(profilePage,  &ProfilePage::backToMenu, this, &MainWindow::showMenuPage);
     connect(scanPage,  &ScanPage::viewResults, this, &MainWindow::showDataPage);
     connect(switchProfilePage,  &SwitchProfilePage::backToMenu, this, &MainWindow::showMenuPage);
+
+    // set up other communication functions:
+    connect(scanPage,  &ScanPage::nextPoint, this, &MainWindow::advancePoint);
+    connect(scanPage,  &ScanPage::scanOver, this, &MainWindow::resetScan);
 
     // add pages to stackedWidget
     ui->stackedWidget->addWidget(menuPage);
@@ -69,10 +73,25 @@ void MainWindow::showDataPage() {
 
 void MainWindow::showScanPage() {
     ui->stackedWidget->setCurrentWidget(scanPage);
-    scanPage->updateUI(appManager->getPointInfo(0), 2.0); // temp (this should be called every time the scan advances)
+    appManager->resetScan();
 }
 
 void MainWindow::showSwitchProfilePage() {
     ui->stackedWidget->setCurrentWidget(switchProfilePage);
+}
+
+
+// communication functions
+
+void MainWindow::advancePoint() {
+    bool isLastPoint = (appManager->advancePoint());
+    scanPage->updateUI(appManager->getPointInfo(), 2.0); // replace 2.0 with point data
+    if (isLastPoint) {
+        scanPage->lastPoint();
+    }
+}
+
+void MainWindow::resetScan() {
+    appManager->resetScan();
 }
 

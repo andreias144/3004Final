@@ -78,14 +78,14 @@
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>260</y>
+     <x>10</x>
+     <y>240</y>
      <width>361</width>
-     <height>31</height>
+     <height>41</height>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="afterScan">
     <widget class="QPushButton" name="resultsButton">
@@ -106,9 +106,9 @@
     <widget class="QPushButton" name="skinToggleButton">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>0</y>
-       <width>101</width>
+       <x>30</x>
+       <y>10</y>
+       <width>111</width>
        <height>25</height>
       </rect>
      </property>
@@ -120,8 +120,8 @@
      <property name="geometry">
       <rect>
        <x>170</x>
-       <y>0</y>
-       <width>171</width>
+       <y>10</y>
+       <width>191</width>
        <height>31</height>
       </rect>
      </property>

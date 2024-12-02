@@ -2,6 +2,7 @@
 
 AppManager::AppManager() : activeProfile(nullptr) {
     initializeMeasurementPoints();
+    resetScan();
 }
 
 void AppManager::addProfile(const QString& name, int age, double height, double weight) {
@@ -76,6 +77,16 @@ void AppManager::initializeMeasurementPoints() {
 
 }
 
-MeasurementPoint AppManager::getPointInfo(int index) {
-    return measurementPoints[index];
+MeasurementPoint AppManager::getPointInfo() {
+    return measurementPoints[currScanPoint];
+}
+
+bool AppManager::advancePoint() {
+    currScanPoint++;
+    return (currScanPoint == 23);
+}
+
+void AppManager::resetScan() {
+    currScanPoint = 0;
+    // anything else?
 }

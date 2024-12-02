@@ -9,36 +9,21 @@ ScanPage::ScanPage(QWidget *parent) :
     ui(new Ui::ScanPage)
 {
     ui->setupUi(this);
+
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
+    //Set up skin status
+    connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
 
-
-
-    // move dot to cordinate:
-    // with every iteration of the scan, appmanager will call a function updateui() on scanpage,
-    //  which willl pass in  all of the info as parameters. No scan logic is managed in scanpage.
-    // the info can all be represented by a measurementpoint object and a double
 
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
-    //Set up skin status
-    connect(ui->skinToggleButton, &QPushButton::released, this, [this]() {
+    // call performScan on Scanner (TODO)
+    // this pregenerates the data
 
-        //If the device is on the skin after being toggled
-        if (device->toggleOnSkin()) {
+    // start scan
 
-            ui->skinToggleButton->setText("Remove off skin");
-            ui->skinStatus->setText("Current status : On skin");
-        }
-
-        //If the device is off the skin after being toggled
-        else {
-
-            ui->skinToggleButton->setText("Add on skin");
-            ui->skinStatus->setText("Current status : Off skin");
-            ui->stackedWidget->setCurrentWidget(ui->afterScan);
-        }
-    });
+    emit nextPoint();
 }
 
 ScanPage::~ScanPage()
@@ -50,6 +35,7 @@ ScanPage::~ScanPage()
 void ScanPage::updateUI(MeasurementPoint p, double data) {
 
     // set up image (change this to only run when necessary)
+    scene.clear();
     QPixmap pixmap(p.getImagePath());
     QGraphicsPixmapItem *pixmapItem = scene.addPixmap(pixmap);
     ui->imageView->setScene(&scene);
@@ -62,6 +48,33 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
 }
 
 
+void ScanPage::deviceToggled() {
+
+    //If the device is on the skin after being toggled
+    if (device->toggleOnSkin()) {
+
+        ui->skinToggleButton->setText("Remove off skin");
+        ui->skinStatus->setText("Current status : On skin");
+    }
+
+    //If the device is off the skin after being toggled
+    else {
+        ui->skinToggleButton->setText("Add on skin");
+        ui->skinStatus->setText("Current status : Off skin");
+        emit nextPoint();
+        //ui->stackedWidget->setCurrentWidget(ui->afterScan); // temp
+    }
+
+}
+
+void ScanPage::lastPoint() {
+    ui->stackedWidget->setCurrentWidget(ui->afterScan);
+}
+
+
 void ScanPage::resultsButtonClicked() {
+    emit scanOver();
+    ui->stackedWidget->setCurrentWidget(ui->duringScan); // reset stackedWidget
     emit viewResults();
+
 }
