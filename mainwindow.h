@@ -41,6 +41,9 @@ private:
 
     AppManager* appManager;
 
+    void advancePoint();
+    void resetScan();
+
 private slots: // change to private?
     void showProfilePage();
     void showMenuPage();

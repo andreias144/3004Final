@@ -12,6 +12,9 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     ui->setupUi(this);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
     //Set up skin status
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
@@ -20,6 +23,7 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
+<<<<<<< HEAD
     this->batteryIndicator = batteryIndicator;
 
 <<<<<<< HEAD
@@ -47,15 +51,17 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     //  which willl pass in  all of the info as parameters. No scan logic is managed in scanpage.
     // the info can all be represented by a measurementpoint object and a double
 
+=======
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
-    //Set up skin status
-    connect(ui->skinToggleButton, &QPushButton::released, this, [this]() {
+    // call performScan on Scanner (TODO)
+    // this pregenerates the data
 
-        //If the device is on the skin after being toggled
-        if (device->toggleOnSkin()) {
+    // start scan
 
+<<<<<<< HEAD
             ui->skinToggleButton->setText("Remove off skin");
             ui->skinStatus->setText("Current status : On skin");
         }
@@ -69,6 +75,9 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
         }
     });
 >>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
+=======
+    emit nextPoint();
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 }
 
 ScanPage::~ScanPage()
@@ -105,7 +114,11 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
 void ScanPage::updateUI(MeasurementPoint p, double data) {
 
     // set up image (change this to only run when necessary)
+<<<<<<< HEAD
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
+=======
+    scene.clear();
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
     QPixmap pixmap(p.getImagePath());
     QGraphicsPixmapItem *pixmapItem = scene.addPixmap(pixmap);
     ui->imageView->setScene(&scene);
@@ -152,11 +165,39 @@ void ScanPage::lastPoint() {
 }
 
 
+<<<<<<< HEAD
+=======
+void ScanPage::deviceToggled() {
+
+    //If the device is on the skin after being toggled
+    if (device->toggleOnSkin()) {
+
+        ui->skinToggleButton->setText("Remove off skin");
+        ui->skinStatus->setText("Current status : On skin");
+    }
+
+    //If the device is off the skin after being toggled
+    else {
+        ui->skinToggleButton->setText("Add on skin");
+        ui->skinStatus->setText("Current status : Off skin");
+        emit nextPoint();
+        //ui->stackedWidget->setCurrentWidget(ui->afterScan); // temp
+    }
+
+}
+
+void ScanPage::lastPoint() {
+    ui->stackedWidget->setCurrentWidget(ui->afterScan);
+}
+
+
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 void ScanPage::resultsButtonClicked() {
     emit scanOver();
     ui->stackedWidget->setCurrentWidget(ui->duringScan); // reset stackedWidget
     emit viewResults();
 
+<<<<<<< HEAD
 =======
 =======
 }
@@ -166,4 +207,6 @@ void ScanPage::resultsButtonClicked() {
 void ScanPage::resultsButtonClicked() {
     emit viewResults();
 >>>>>>> 503b51a (added images, minor ui changes, some comments in scanpage.cpp)
+=======
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 }
