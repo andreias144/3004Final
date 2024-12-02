@@ -9,6 +9,7 @@
 #include "scanpage.h"
 #include "switchprofilepage.h"
 #include "defs.h"
+#include "AppManager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,6 +30,8 @@ private:
     ProfilePage* profilePage;
     ScanPage* scanPage;
     SwitchProfilePage* switchProfilePage;
+
+    AppManager appManager;
 
 private slots: // change to private?
     void showProfilePage();
