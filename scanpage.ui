@@ -32,14 +32,17 @@
   <widget class="QGraphicsView" name="handView">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>30</y>
-     <width>225</width>
-     <height>225</height>
+     <x>50</x>
+     <y>80</y>
+     <width>125</width>
+     <height>125</height>
     </rect>
    </property>
    <property name="autoFillBackground">
     <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: transparent</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
@@ -135,10 +138,10 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="instructions">
    <property name="geometry">
     <rect>
-     <x>260</x>
-     <y>30</y>
-     <width>121</width>
-     <height>221</height>
+     <x>210</x>
+     <y>50</y>
+     <width>171</width>
+     <height>171</height>
     </rect>
    </property>
    <property name="text">
@@ -151,8 +154,8 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="point">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>110</y>
+     <x>80</x>
+     <y>160</y>
      <width>21</width>
      <height>17</height>
     </rect>
@@ -162,8 +165,13 @@ p, li { white-space: pre-wrap; }
      <pointsize>25</pointsize>
     </font>
    </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
    <property name="styleSheet">
-    <string notr="true">color: rgb(167, 50, 50)</string>
+    <string notr="true">color: rgb(167, 50, 50);
+background-color: transparent;
+</string>
    </property>
    <property name="text">
     <string>•</string>

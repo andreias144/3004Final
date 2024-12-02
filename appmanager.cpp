@@ -47,7 +47,7 @@ const std::vector<MeasurementPoint>& AppManager::getMeasurementPoints() const {
 
 void AppManager::initializeMeasurementPoints() {
     measurementPoints = {
-        {"H1L", "Left Hand, Point 1", QPointF(10, 20)},
+        {"H1L", "Left Hand, Point 1", QPointF(60, 180)},
         {"H1R", "Right Hand, Point 1", QPointF(30, 20)},
         {"H2L", "Left Hand, Point 2", QPointF(10, 40)},
         {"H2R", "Right Hand, Point 2", QPointF(30, 40)},

@@ -11,15 +11,17 @@ ScanPage::ScanPage(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
 
-    // set up hand
-
-    QPixmap handPixmap(":/images/hand.png");
+    // set up image (temp)
+    QPixmap handPixmap(":/images/imageLH.png");
     QGraphicsPixmapItem *pixmapItem = handScene.addPixmap(handPixmap);
-
     ui->handView->setScene(&handScene);
     handScene.setSceneRect(pixmapItem->sceneBoundingRect());
     ui->handView->show();
 
+    // move dot to cordinate:
+    // with every iteration of the scan, appmanager will call a function updateui() on scanpage,
+    //  which willl pass in  all of the info as parameters. No scan logic is managed in scanpage.
+    // the info can all be represented by a measurementpoint object and a double
 
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
@@ -48,6 +50,7 @@ ScanPage::~ScanPage()
 {
     delete ui;
 }
+
 
 void ScanPage::resultsButtonClicked() {
     emit viewResults();

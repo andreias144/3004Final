@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/images">
-        <file>hand.png</file>
+        <file>imageLF.png</file>
+        <file>imageLH.png</file>
+        <file>imageRF.png</file>
+        <file>imageRH.png</file>
     </qresource>
 </RCC>
