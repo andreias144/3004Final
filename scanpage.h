@@ -36,9 +36,13 @@ public:
     ~ScanPage();
     void updateUI(MeasurementPoint, double);
 <<<<<<< HEAD
+<<<<<<< HEAD
     void lastPoint();
 =======
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
+=======
+    void lastPoint();
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 
 private:
     Ui::ScanPage *ui;
@@ -52,7 +56,10 @@ signals:
     void viewResults();
     void nextPoint();
     void scanOver();
+<<<<<<< HEAD
     void returnToMainWindow();
+=======
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 
 private slots:
     void resultsButtonClicked();

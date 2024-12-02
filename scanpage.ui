@@ -86,10 +86,14 @@
    </property>
    <property name="currentIndex">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <number>1</number>
 =======
     <number>0</number>
 >>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
+=======
+    <number>1</number>
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
    </property>
    <widget class="QWidget" name="afterScan">
     <widget class="QPushButton" name="resultsButton">
@@ -111,6 +115,7 @@
      <property name="geometry">
       <rect>
 <<<<<<< HEAD
+<<<<<<< HEAD
        <x>30</x>
        <y>10</y>
        <width>111</width>
@@ -119,6 +124,11 @@
        <y>0</y>
        <width>101</width>
 >>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
+=======
+       <x>30</x>
+       <y>10</y>
+       <width>111</width>
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
        <height>25</height>
       </rect>
      </property>
@@ -131,12 +141,17 @@
       <rect>
        <x>170</x>
 <<<<<<< HEAD
+<<<<<<< HEAD
        <y>10</y>
        <width>191</width>
 =======
        <y>0</y>
        <width>171</width>
 >>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
+=======
+       <y>10</y>
+       <width>191</width>
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
        <height>31</height>
       </rect>
      </property>

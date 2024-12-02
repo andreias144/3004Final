@@ -3,9 +3,13 @@
 AppManager::AppManager() : activeProfile(nullptr) {
     initializeMeasurementPoints();
 <<<<<<< HEAD
+<<<<<<< HEAD
     resetScan();
 =======
 >>>>>>> d456991 (basic structure implmented)
+=======
+    resetScan();
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 }
 
 void AppManager::addProfile(const QString& name, int age, double height, double weight) {
@@ -157,7 +161,22 @@ void AppManager::resetScan() {
 
 }
 
+<<<<<<< HEAD
 MeasurementPoint AppManager::getPointInfo(int index) {
     return measurementPoints[index];
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
+=======
+MeasurementPoint AppManager::getPointInfo() {
+    return measurementPoints[currScanPoint];
+}
+
+bool AppManager::advancePoint() {
+    currScanPoint++;
+    return (currScanPoint == 23);
+}
+
+void AppManager::resetScan() {
+    currScanPoint = 0;
+    // anything else?
+>>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
 }
