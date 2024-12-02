@@ -39,10 +39,15 @@ public:
     const std::vector<MeasurementPoint>& getMeasurementPoints() const;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     MeasurementPoint getPointInfo();
 
 =======
 >>>>>>> d456991 (basic structure implmented)
+=======
+    MeasurementPoint getPointInfo(int);
+
+>>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
 private:
     std::vector<std::unique_ptr<Profile>> profiles;
     Profile* activeProfile;

@@ -55,9 +55,12 @@ MainWindow::MainWindow(QWidget *parent)
     // set default
     ui->stackedWidget->setCurrentWidget(menuPage);
 
+<<<<<<< HEAD
     //Set default battery value (100)
     ui->batteryIndicator->display(100);
 
+=======
+>>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
     // set up appmanager
     appManager = new AppManager();
 }
@@ -89,6 +92,7 @@ void MainWindow::showDataPage() {
 
 void MainWindow::showScanPage() {
     ui->stackedWidget->setCurrentWidget(scanPage);
+<<<<<<< HEAD
     appManager->resetScan();
     scanPage->updateUI(appManager->getPointInfo(), 2.0); // replace 2.0 with point data for the first point
 
@@ -111,6 +115,9 @@ void MainWindow::advancePoint() {
 
 void MainWindow::resetScan() {
     appManager->resetScan();
+=======
+    scanPage->updateUI(appManager->getPointInfo(0), 2.0); // temp (this should be called every time the scan advances)
+>>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
 }
 
 void MainWindow::showSwitchProfilePage() {
