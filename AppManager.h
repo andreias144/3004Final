@@ -2,6 +2,7 @@
 #define APPMANAGER_H
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "profile.h"
 #include "measurementpoint.h"
 #include "scanner.h"
@@ -10,6 +11,11 @@
 #include "measurementpoint.h"#
 #include "Scanner.h"
 >>>>>>> d456991 (basic structure implmented)
+=======
+#include "profile.h"
+#include "measurementpoint.h"
+#include "scanner.h"
+>>>>>>> 5d28de2 (minor bug fixes, removed unused files)
 #include <vector>
 #include <memory>
 

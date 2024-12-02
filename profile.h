@@ -2,10 +2,14 @@
 #define PROFILE_H
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "scan.h"
 =======
 #include "Scan.h"
 >>>>>>> d456991 (basic structure implmented)
+=======
+#include "scan.h"
+>>>>>>> 5d28de2 (minor bug fixes, removed unused files)
 #include <vector>
 #include <QString>
 

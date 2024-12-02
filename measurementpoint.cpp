@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "measurementpoint.h"
 
 MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const QPoint& pos, const QString& path)
@@ -22,6 +23,9 @@ QString MeasurementPoint::getImagePath() {
 }
 =======
 #include "MeasurementPoint.h"
+=======
+#include "measurementpoint.h"
+>>>>>>> 5d28de2 (minor bug fixes, removed unused files)
 
 MeasurementPoint::MeasurementPoint(const QString& pointID, const QString& desc, const QPointF& pos)
     : id(pointID), description(desc), position(pos) {}

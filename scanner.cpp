@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "scanner.h"
 =======
 #include "Scanner.h"
 >>>>>>> d456991 (basic structure implmented)
+=======
+#include "scanner.h"
+>>>>>>> 5d28de2 (minor bug fixes, removed unused files)
 #include <QRandomGenerator>
 #include <cmath>
 
