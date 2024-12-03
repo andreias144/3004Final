@@ -1,9 +1,10 @@
 #include "menupage.h"
 #include "ui_menupage.h"
 
-MenuPage::MenuPage(QWidget *parent) :
+MenuPage::MenuPage(AppManager* appManager, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::MenuPage)
+    ui(new Ui::MenuPage),
+    appManager(appManager)
 {
     ui->setupUi(this);
 
@@ -13,6 +14,7 @@ MenuPage::MenuPage(QWidget *parent) :
     connect(ui->scanButton, &QPushButton::released, this, &MenuPage::scanButtonClicked);
     connect(ui->switchProfileButton, &QPushButton::released, this, &MenuPage::switchProfileButtonClicked);
 
+    updateProfileDisplay();
 }
 
 MenuPage::~MenuPage()
@@ -34,4 +36,14 @@ void MenuPage::scanButtonClicked() {
 
 void MenuPage::switchProfileButtonClicked() {
     emit switchProfile();
+}
+
+void MenuPage::updateProfileDisplay()
+{
+    Profile* activeProfile = appManager->getActiveProfile();
+    if (activeProfile) {
+        ui->currentProfileLabel->setText("Current Profile: " + activeProfile->getName());
+    } else {
+        ui->currentProfileLabel->setText("Current Profile: None");
+    }
 }

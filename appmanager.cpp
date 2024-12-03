@@ -9,10 +9,9 @@ void AppManager::addProfile(const QString& name, int age, double height, double 
     auto newProfile = std::unique_ptr<Profile>(new Profile(name, age, height, weight));
 
     profiles.push_back(std::move(newProfile));
+    activeProfile = profiles.back().get();
 
-    if (profiles.size() == 1) {
-        activeProfile = profiles.front().get();
-    }
+
 }
 
 void AppManager::removeProfile(int index) {
@@ -21,7 +20,6 @@ void AppManager::removeProfile(int index) {
             activeProfile = nullptr;
         }
         profiles.erase(profiles.begin() + index);
-
         if (!profiles.empty() && !activeProfile) {
             activeProfile = profiles.front().get();
         }

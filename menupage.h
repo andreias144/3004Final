@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "defs.h"
+#include "AppManager.h"
 
 namespace Ui {
 class MenuPage;
@@ -13,11 +14,13 @@ class MenuPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit MenuPage(QWidget *parent = nullptr);
+    explicit MenuPage(AppManager* appManager, QWidget *parent = nullptr);
     ~MenuPage();
+    void updateProfileDisplay();
 
 private:
     Ui::MenuPage *ui;
+    AppManager* appManager;
 
 signals:
     void addProfile();

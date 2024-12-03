@@ -65,6 +65,19 @@
     <string>View data</string>
    </property>
   </widget>
+  <widget class="QLabel" name="currentProfileLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>141</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Current Profile: None</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

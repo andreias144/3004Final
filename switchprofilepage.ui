@@ -39,6 +39,29 @@
     <string>Switch Profile</string>
    </property>
   </widget>
+  <widget class="QListWidget" name="profileListWidget">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>40</y>
+     <width>221</width>
+     <height>141</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="switchButton">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>190</y>
+     <width>83</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Switch</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

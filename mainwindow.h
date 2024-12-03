@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include <QStackedWidget>
 #include "menupage.h"
 #include "datapage.h"
@@ -42,5 +43,6 @@ private slots: // change to private?
     void showDataPage();
     void showScanPage();
     void showSwitchProfilePage();
+    void activeProfileChanged();
 };
 #endif // MAINWINDOW_H

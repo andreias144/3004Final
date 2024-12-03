@@ -1,6 +1,7 @@
 #ifndef PROFILEPAGE_H
 #define PROFILEPAGE_H
 
+#include "AppManager.h"
 #include <QWidget>
 #include <QString>
 
@@ -13,20 +14,20 @@ class ProfilePage : public QWidget
     Q_OBJECT
 
 public:
-    explicit ProfilePage(QWidget *parent = nullptr);
+    explicit ProfilePage(AppManager* appManager, QWidget *parent = nullptr);
     ~ProfilePage();
 
 private:
     Ui::ProfilePage *ui;
+    AppManager* appManager;
 
 signals:
     void backToMenu();
 
 private slots:
     void doneButtonClicked();
-    void saveProfileData(const QString& profileName, int age, double height, double weight);
-    bool isProfileNameUnique(const QString& profileName);
-    int getProfileCount();
+    void cancelButtonClicked();
+
 };
 
 #endif // PROFILEPAGE_H

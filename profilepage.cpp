@@ -5,12 +5,14 @@
 #include <QIntValidator>
 #include <QDoubleValidator>
 
-ProfilePage::ProfilePage(QWidget *parent) :
+ProfilePage::ProfilePage(AppManager* appManager, QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ProfilePage)
+    ui(new Ui::ProfilePage),
+    appManager(appManager)
 {
     ui->setupUi(this);
     connect(ui->saveButton, &QPushButton::released, this, &ProfilePage::doneButtonClicked);
+    connect(ui->cancelButton, &QPushButton::released, this, &ProfilePage::cancelButtonClicked);
 
     // Valide the data
     ui->ageLineEdit->setValidator(new QIntValidator(1, 150, this));
@@ -34,82 +36,48 @@ void ProfilePage::doneButtonClicked() {
         return;
     }
 
-    if (getProfileCount() >= 5) {
-        QMessageBox::warning(this, "Maximum Profiles Reached", "You cannot create more than 5 profiles");
+    if (appManager->getProfiles().size() > 4) {
+            QMessageBox::warning(this, "Maximum Profiles Reached", "Cannot create more than 5 profiles");
+            return;
+        }
+
+    //Convert input
+    bool ageOk, weightOk, heightOk;
+    int age = ageText.toInt(&ageOk);
+    double weight = weightText.toDouble(&weightOk);
+    double height = heightText.toDouble(&heightOk);
+
+    if (!ageOk || age <= 0) {
+        QMessageBox::warning(this, "Invalid Input", "Please enter a valid age");
         return;
-        }
+    }
+    if (!weightOk || weight <= 0) {
+        QMessageBox::warning(this, "Invalid Input", "Please enter a valid weight");
+        return;
+    }
+    if (!heightOk || height <= 0) {
+        QMessageBox::warning(this, "Invalid Input", "Please enter a valid height");
+        return;
+    }
 
-    bool ageOk;
-        int age = ageText.toInt(&ageOk);
-        if (!ageOk || age <= 0) {
-            QMessageBox::warning(this, "Invalid Input", "Please enter a valid age");
+    // Verify Uniqeness
+    const auto& profiles = appManager->getProfiles();
+    for (const auto& profile : profiles) {
+        if (profile->getName() == profileName) {
+            QMessageBox::warning(this, "Duplicate Profile", "A profile with this name already exists");
             return;
         }
+    }
 
-    bool weightOk;
-        double weight = weightText.toDouble(&weightOk);
-        if (!weightOk || weight <= 0) {
-            QMessageBox::warning(this, "Invalid Input", "Please enter a valid weight");
-            return;
-        }
-
-    bool heightOk;
-        double height = heightText.toDouble(&heightOk);
-        if (!heightOk || height <= 0) {
-            QMessageBox::warning(this, "Invalid Input", "Please enter a valid height");
-            return;
-        }
-
-    saveProfileData(profileName, age, weight, height);
+    // Add new profile
+    appManager->addProfile(profileName, age, height, weight);
 
     QMessageBox::information(this, "Profile Saved", "Your profile has been saved successfully.");
 
     emit backToMenu();
 }
 
-
-void ProfilePage::saveProfileData(const QString& profileName, int age, double weight, double height) {
-    // Create qsettings object, provides storage for application
-    QSettings settings("RadoTech", "OurApp");
-
-    // Keys will be stored under userporfile group
-    settings.beginGroup("UserProfile");
-    settings.beginGroup(profileName);
-    settings.setValue("Age", age);
-    settings.setValue("Weight", weight);
-    settings.setValue("Height", height);
-    settings.endGroup();
-    settings.endGroup();
+void ProfilePage::cancelButtonClicked() {
+    emit backToMenu();
 }
 
-/* To access values stored, use the following code:
- * QSettings settings("RadoTech", "OurApp");
-    settings.beginGroup("UserProfile");
-    settings.beginGroup(profileName);
-    int age = settings.value("Age").toInt();
-    double weight = settings.value("Weight").toDouble();
-    double height = settings.value("Height").toDouble();
-    settings.endGroup();
-    settings.endGroup();
-*/
-
-
-
-bool ProfilePage::isProfileNameUnique(const QString& profileName) {
-    QSettings settings("RadoTech", "OurApp");
-    settings.beginGroup("UserProfiles");
-    bool exists = settings.childGroups().contains(profileName);
-    settings.endGroup();
-
-    // Returns true if it is unique
-    return !exists;
-}
-
-
-int ProfilePage::getProfileCount() {
-    QSettings settings("RadoTech", "OurApp");
-    settings.beginGroup("UserProfiles");
-    int count = settings.childGroups().size();
-    settings.endGroup();
-    return count;
-}

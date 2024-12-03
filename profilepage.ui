@@ -16,7 +16,7 @@
   <widget class="QPushButton" name="saveButton">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>50</x>
      <y>240</y>
      <width>111</width>
      <height>25</height>
@@ -90,6 +90,19 @@
      <widget class="QLineEdit" name="nameLineEdit"/>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>240</y>
+     <width>111</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
   </widget>
  </widget>
  <resources/>

@@ -5,15 +5,16 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , appManager(new AppManager())
 {
     ui->setupUi(this);
 
     // create instances of all pages
-    menuPage = new MenuPage(this);
-    dataPage = new DataPage(this);
-    profilePage = new ProfilePage(this);
-    scanPage = new ScanPage(this);
-    switchProfilePage = new SwitchProfilePage(this);
+    menuPage = new MenuPage(appManager, this);
+   dataPage = new DataPage(this);
+   profilePage = new ProfilePage(appManager, this);
+   scanPage = new ScanPage(this);
+   switchProfilePage = new SwitchProfilePage(appManager, this);
 
     // set up page navigation functions:
 
@@ -41,9 +42,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set default
     ui->stackedWidget->setCurrentWidget(menuPage);
-
-    // set up appmanager
-    appManager = new AppManager();
 }
 
 MainWindow::~MainWindow()
@@ -51,10 +49,11 @@ MainWindow::~MainWindow()
     delete ui;
     delete menuPage;
     delete dataPage;
-    delete scanPage;
     delete profilePage;
+    delete scanPage;
     delete switchProfilePage;
     delete appManager;
+
 }
 
 // page navigation
@@ -64,6 +63,13 @@ void MainWindow::showProfilePage() {
 }
 
 void MainWindow::showMenuPage() {
+//     Prevents user from accessing menu if they havent made a profile yet
+    if (!appManager->getActiveProfile()) {
+        QMessageBox::warning(this, "No Profile", "Create a profile before accessing the menu");
+        showProfilePage();
+        return;
+    }
+    menuPage->updateProfileDisplay();
     ui->stackedWidget->setCurrentWidget(menuPage);
 }
 
@@ -81,6 +87,7 @@ void MainWindow::showSwitchProfilePage() {
 }
 
 
+
 // communication functions
 
 void MainWindow::advancePoint() {
@@ -93,5 +100,9 @@ void MainWindow::advancePoint() {
 
 void MainWindow::resetScan() {
     appManager->resetScan();
+}
+void MainWindow::activeProfileChanged() {
+    menuPage->updateProfileDisplay();
+
 }
 
