@@ -25,9 +25,14 @@ ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     this->batteryIndicator = batteryIndicator;
 
 <<<<<<< HEAD
+=======
+    this->batteryIndicator = batteryIndicator;
+
+>>>>>>> a63c1e3 (Fixed bug with first image not showing, added battery depletion feature)
 
     // call performScan on Scanner (TODO)
     // this pregenerates the data
