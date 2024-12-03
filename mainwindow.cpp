@@ -32,12 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set up other communication functions:
 
-    /*bool connectionSuccess = connect(scanPage, &ScanPage::requestScan, this, &MainWindow::startScan);
-    qDebug() << "Connection for requestScan to startScan established:" << connectionSuccess;*/
     connect(menuPage,  &MenuPage::scan, scanPage, &ScanPage::scanInit);
-    connect(scanPage, &ScanPage::requestScan, this, &MainWindow::startScan);
     connect(scanPage,  &ScanPage::nextPoint, this, &MainWindow::advancePoint);
-    connect(scanPage,  &ScanPage::scanOver, this, &MainWindow::resetScan);
 
     // add pages to stackedWidget
     ui->stackedWidget->addWidget(menuPage);
@@ -47,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->addWidget(switchProfilePage);
 
     // set default
-    ui->stackedWidget->setCurrentWidget(menuPage);
+    ui->stackedWidget->setCurrentWidget(profilePage);
 }
 
 MainWindow::~MainWindow()
@@ -84,37 +80,26 @@ void MainWindow::showDataPage() {
 }
 
 void MainWindow::showScanPage() {
+    appManager->triggerScan();
+    scanPage->scanInit();
     ui->stackedWidget->setCurrentWidget(scanPage);
-    appManager->resetScan();
 }
 
 void MainWindow::showSwitchProfilePage() {
     ui->stackedWidget->setCurrentWidget(switchProfilePage);
 }
 
-
-
-// communication functions
-void MainWindow::startScan() {
-    if (appManager) {
-        qDebug() << "Triggering scan...";
-        appManager->triggerScan();
-    }
-}
-
 void MainWindow::advancePoint() {
     bool isLastPoint = (appManager->advancePoint());
     MeasurementPoint currPoint = appManager->getPointInfo();
     int scanPointIndex = currPoint.getID();
-    scanPage->updateUI(currPoint, appManager->getActiveProfile()->getLastScan().getValueAt(scanPointIndex - 1)); // replace 2.0 with point data
+    //scanPage->updateUI(currPoint, appManager->getActiveProfile()->getLastScan().getValueAt(scanPointIndex - 1));
+    scanPage->updateUI(currPoint, 2.0);
     if (isLastPoint) {
         scanPage->lastPoint();
     }
 }
 
-void MainWindow::resetScan() {
-    appManager->resetScan();
-}
 void MainWindow::activeProfileChanged() {
     menuPage->updateProfileDisplay();
 

@@ -35,7 +35,6 @@ private:
     AppManager* appManager;
 
     void advancePoint();
-    void resetScan();
 
 private slots: // change to private?
     void showProfilePage();
@@ -45,7 +44,5 @@ private slots: // change to private?
     void showSwitchProfilePage();
     void activeProfileChanged();
 
-public slots:
-    void startScan();
 };
 #endif // MAINWINDOW_H

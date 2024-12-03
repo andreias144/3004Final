@@ -2,7 +2,6 @@
 
 AppManager::AppManager() : activeProfile(nullptr) {
     initializeMeasurementPoints();
-    resetScan();
 }
 
 void AppManager::addProfile(const QString& name, int age, double height, double weight) {
@@ -72,7 +71,6 @@ void AppManager::initializeMeasurementPoints() {
         {23, "Left Foot, Position 6", QPoint(10, 240), ":/images/imageLF.png"},
         {24, "Right Foot, Position 6", QPoint(30, 240), ":/images/imageRF.png"}
     };
-
 }
 
 MeasurementPoint AppManager::getPointInfo() {
@@ -80,9 +78,10 @@ MeasurementPoint AppManager::getPointInfo() {
 }
 
 void AppManager::triggerScan() {
-        std::vector<MeasurementPoint> points = getMeasurementPoints();
-        Scan scan = scanner.performScan(points, *activeProfile);
-        activeProfile->addScan(scan);
+    currScanPoint = 1;
+    std::vector<MeasurementPoint> points = getMeasurementPoints();
+    Scan scan = scanner.performScan(points, *activeProfile);
+    activeProfile->addScan(scan);
 }
 
 bool AppManager::advancePoint() {
@@ -90,7 +89,3 @@ bool AppManager::advancePoint() {
     return (currScanPoint == 23);
 }
 
-void AppManager::resetScan() {
-    currScanPoint = 0;
-    // anything else?
-}

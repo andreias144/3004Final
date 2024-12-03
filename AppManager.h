@@ -2,6 +2,7 @@
 #define APPMANAGER_H
 
 #include <QObject>
+#include "defs.h"
 #include "profile.h"
 #include "measurementpoint.h"
 #include "scanner.h"
@@ -18,7 +19,6 @@ public:
     void switchActiveProfile(int index);
     bool advancePoint();
     int getCurrPoint();
-    void resetScan();
     void triggerScan();
 
     Profile* getActiveProfile() const;

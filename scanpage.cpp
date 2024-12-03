@@ -13,11 +13,8 @@ ScanPage::ScanPage(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
-    //Set up skin status
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
 
-    // set up stackedWidget
-    ui->stackedWidget->setCurrentWidget(ui->duringScan);
 }
 
 ScanPage::~ScanPage()
@@ -25,13 +22,9 @@ ScanPage::~ScanPage()
     delete ui;
 }
 
-void ScanPage::scanInit() { // this slot gets called by the menu page when the scan signal is emitted, because emitting requestScan in the Ctor happens too early before the connection gets established in mainwindow
-    emit requestScan();
-    qDebug() << "requestScan emitted.";
-    // this pregenerates the data
-
-    // advance the scan to point 1:
-    //emit nextPoint();
+void ScanPage::scanInit() {
+    // set up stackedWidget
+    ui->stackedWidget->setCurrentWidget(ui->duringScan);
 }
 
 
@@ -59,7 +52,6 @@ void ScanPage::deviceToggled() {
 
     //If the device is on the skin after being toggled
     if (device->toggleOnSkin()) {
-
         ui->skinToggleButton->setText("Remove off skin");
         ui->skinStatus->setText("Current status : On skin");
     }
@@ -79,8 +71,5 @@ void ScanPage::lastPoint() {
 
 
 void ScanPage::resultsButtonClicked() {
-    emit scanOver();
-    ui->stackedWidget->setCurrentWidget(ui->duringScan); // reset stackedWidget
     emit viewResults();
-
 }

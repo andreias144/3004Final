@@ -28,14 +28,13 @@ public:
     ~ScanPage();
     void updateUI(MeasurementPoint, double);
     void lastPoint();
-
+    void scanInit();
 
 private:
     Ui::ScanPage *ui;
     QGraphicsScene scene;
 
 signals:
-    void requestScan();
     void viewResults();
     void nextPoint();
     void scanOver();
@@ -43,8 +42,6 @@ signals:
 private slots:
     void resultsButtonClicked();
     void deviceToggled();
-public slots:
-    void scanInit();
 };
 
 #endif // SCANPAGE_H
