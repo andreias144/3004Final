@@ -2,6 +2,7 @@
 #define DEFS_H
 
 #include <QDebug>
+#include <QString>
 #include <string>
 
 using namespace std;

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>395</width>
-    <height>328</height>
+    <height>331</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,15 +50,15 @@
      </rect>
     </property>
     <property name="text">
-     <string>RaDoTech Application                          Battery: </string>
+     <string>RaDoTech Application                     Battery :</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="batteryIndicator">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>310</x>
       <y>0</y>
-      <width>64</width>
+      <width>81</width>
       <height>23</height>
      </rect>
     </property>
