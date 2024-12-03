@@ -4,7 +4,7 @@ MeasurementPoint::MeasurementPoint(const int pointID, const QString& desc, const
     : id(pointID), description(desc), position(pos), imagePath(path) {}
 
 
-int MeasurementPoint::getID() {
+int MeasurementPoint::getID() const {
     return id;
 }
 

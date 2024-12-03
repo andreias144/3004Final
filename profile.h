@@ -27,6 +27,8 @@ public:
 
     void addScan(Scan scan);
     const std::vector<Scan>& getScans() const;
+    const Scan& getLastScan() const;
+
 
 
 };

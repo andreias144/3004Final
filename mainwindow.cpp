@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -30,6 +31,11 @@ MainWindow::MainWindow(QWidget *parent)
     connect(switchProfilePage,  &SwitchProfilePage::backToMenu, this, &MainWindow::showMenuPage);
 
     // set up other communication functions:
+
+    /*bool connectionSuccess = connect(scanPage, &ScanPage::requestScan, this, &MainWindow::startScan);
+    qDebug() << "Connection for requestScan to startScan established:" << connectionSuccess;*/
+    connect(menuPage,  &MenuPage::scan, scanPage, &ScanPage::scanInit);
+    connect(scanPage, &ScanPage::requestScan, this, &MainWindow::startScan);
     connect(scanPage,  &ScanPage::nextPoint, this, &MainWindow::advancePoint);
     connect(scanPage,  &ScanPage::scanOver, this, &MainWindow::resetScan);
 
@@ -89,10 +95,18 @@ void MainWindow::showSwitchProfilePage() {
 
 
 // communication functions
+void MainWindow::startScan() {
+    if (appManager) {
+        qDebug() << "Triggering scan...";
+        appManager->triggerScan();
+    }
+}
 
 void MainWindow::advancePoint() {
     bool isLastPoint = (appManager->advancePoint());
-    scanPage->updateUI(appManager->getPointInfo(), 2.0); // replace 2.0 with point data
+    MeasurementPoint currPoint = appManager->getPointInfo();
+    int scanPointIndex = currPoint.getID();
+    scanPage->updateUI(currPoint, appManager->getActiveProfile()->getLastScan().getValueAt(scanPointIndex - 1)); // replace 2.0 with point data
     if (isLastPoint) {
         scanPage->lastPoint();
     }

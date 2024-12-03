@@ -8,12 +8,12 @@
 
 class Scanner {
 public:
-    Scanner();
 
     Scan performScan(const std::vector<MeasurementPoint>& measurementPoints, const Profile& Profile);
 
 private:
-    double generateValue(const MeasurementPoint& point, const Profile& Profile);
+    double generateValue(const Profile& Profile);
+    int getSymmetricID(int id);
 };
 
 #endif // SCANNER_H

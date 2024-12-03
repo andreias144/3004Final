@@ -5,11 +5,15 @@
 #include <QString>
 
 class Scan {
-public:
+private:
     QString scanDate;
     std::vector<double> values;
 
+public:
     Scan();
+    std::vector<double> getValues() const;
+    double getValueAt(int index) const;
+
 };
 
 #endif // SCAN_H

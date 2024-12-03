@@ -19,6 +19,7 @@ public:
     bool advancePoint();
     int getCurrPoint();
     void resetScan();
+    void triggerScan();
 
     Profile* getActiveProfile() const;
     const std::vector<std::unique_ptr<Profile>>& getProfiles() const;

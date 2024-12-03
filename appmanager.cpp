@@ -56,8 +56,8 @@ void AppManager::initializeMeasurementPoints() {
         {7, "Left Hand, Position 4", QPoint(10, 80), ":/images/imageLH.png"},
         {8, "Right Hand, Position 4", QPoint(30, 80), ":/images/imageRH.png"},
         {9, "Left Hand, Position 5", QPoint(10, 100), ":/images/imageLH.png"},
-        {10, "Right Hand, Position 5", QPoint(30, 100), ":/images/imageRH.png"},               // I put random values for the Coordinates for now,
-        {11, "Left Hand, Position 6", QPoint(10, 120), ":/images/imageLH.png"},                // also i don't really know what a QPoint is so you can change that as well if another way of saving the coordinates is better
+        {10, "Right Hand, Position 5", QPoint(30, 100), ":/images/imageRH.png"},
+        {11, "Left Hand, Position 6", QPoint(10, 120), ":/images/imageLH.png"},
         {12, "Right Hand, Position 6", QPoint(30, 120), ":/images/imageRH.png"},
         {13, "Left Foot, Position 1", QPoint(10, 140), ":/images/imageLF.png"},
         {14, "Right Foot, Position 1", QPoint(30, 140), ":/images/imageRF.png"},
@@ -77,6 +77,12 @@ void AppManager::initializeMeasurementPoints() {
 
 MeasurementPoint AppManager::getPointInfo() {
     return measurementPoints[currScanPoint];
+}
+
+void AppManager::triggerScan() {
+        std::vector<MeasurementPoint> points = getMeasurementPoints();
+        Scan scan = scanner.performScan(points, *activeProfile);
+        activeProfile->addScan(scan);
 }
 
 bool AppManager::advancePoint() {

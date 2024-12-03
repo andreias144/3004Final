@@ -44,5 +44,8 @@ private slots: // change to private?
     void showScanPage();
     void showSwitchProfilePage();
     void activeProfileChanged();
+
+public slots:
+    void startScan();
 };
 #endif // MAINWINDOW_H

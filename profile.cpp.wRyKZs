@@ -26,8 +26,8 @@ const std::vector<Scan>& Profile::getScans() const {
 
 const Scan& Profile::getLastScan() const {
     if (!scanHistory.empty()) {
-        return scanHistory.back();
+        return scanHistory.back(); // Gibt das letzte Element zurück
     }
-    throw std::runtime_error("Scan history is empty");
+    throw std::runtime_error("Scan history is empty"); // Fehler, wenn keine Scans vorhanden sind
 }
 

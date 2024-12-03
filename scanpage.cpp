@@ -1,5 +1,7 @@
 #include "scanpage.h"
 #include "ui_scanpage.h"
+#include <QDebug>
+
 
 //temp
 #include <QFile>
@@ -16,17 +18,20 @@ ScanPage::ScanPage(QWidget *parent) :
 
     // set up stackedWidget
     ui->stackedWidget->setCurrentWidget(ui->duringScan);
-
-    // call performScan on Scanner (TODO)
-    // this pregenerates the data
-
-    // advance the scan to point 1:
-    emit nextPoint();
 }
 
 ScanPage::~ScanPage()
 {
     delete ui;
+}
+
+void ScanPage::scanInit() { // this slot gets called by the menu page when the scan signal is emitted, because emitting requestScan in the Ctor happens too early before the connection gets established in mainwindow
+    emit requestScan();
+    qDebug() << "requestScan emitted.";
+    // this pregenerates the data
+
+    // advance the scan to point 1:
+    //emit nextPoint();
 }
 
 
