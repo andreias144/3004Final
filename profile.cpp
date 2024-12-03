@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 #include "profile.h"
-=======
-#include "Profile.h"
->>>>>>> d456991 (basic structure implmented)
-=======
-#include "profile.h"
->>>>>>> 5d28de2 (minor bug fixes, removed unused files)
 #include <QDateTime>
 #include <QRandomGenerator>
 
