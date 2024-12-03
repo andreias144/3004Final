@@ -8,6 +8,7 @@
 #include "profile.h"
 #include <vector>
 #include "global.h"
+<<<<<<< HEAD
 =======
 #include "Scan.h"
 #include "MeasurementPoint.h"
@@ -19,6 +20,8 @@
 >>>>>>> 5d28de2 (minor bug fixes, removed unused files)
 #include <vector>
 >>>>>>> d456991 (basic structure implmented)
+=======
+>>>>>>> a63c1e3 (Fixed bug with first image not showing, added battery depletion feature)
 
 class Scanner {
 public:

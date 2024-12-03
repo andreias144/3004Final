@@ -19,10 +19,15 @@ Scan Scanner::performScan(const std::vector<MeasurementPoint>& measurementPoints
         double value = generateValue(point, Profile);
         scan.values.push_back(value);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> d456991 (basic structure implmented)
+=======
+
+
+>>>>>>> a63c1e3 (Fixed bug with first image not showing, added battery depletion feature)
     }
 
     return scan;

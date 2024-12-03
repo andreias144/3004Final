@@ -13,10 +13,14 @@ MainWindow::MainWindow(QWidget *parent)
     dataPage = new DataPage(this);
     profilePage = new ProfilePage(this);
 <<<<<<< HEAD
+<<<<<<< HEAD
     scanPage = new ScanPage(this, ui->batteryIndicator);
 =======
     scanPage = new ScanPage(this);
 >>>>>>> ef311ba (added switchprofilepage)
+=======
+    scanPage = new ScanPage(this, ui->batteryIndicator);
+>>>>>>> a63c1e3 (Fixed bug with first image not showing, added battery depletion feature)
     switchProfilePage = new SwitchProfilePage(this);
 
     // set up page navigation functions:
@@ -64,11 +68,17 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->setCurrentWidget(menuPage);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     //Set default battery value (100)
     ui->batteryIndicator->display(100);
 
 =======
 >>>>>>> 10ed055 (working but incomplete ScanPage->updateUI())
+=======
+    //Set default battery value (100)
+    ui->batteryIndicator->display(100);
+
+>>>>>>> a63c1e3 (Fixed bug with first image not showing, added battery depletion feature)
     // set up appmanager
     appManager = new AppManager();
 }
@@ -105,6 +115,7 @@ void MainWindow::showScanPage() {
     appManager->resetScan();
     scanPage->updateUI(appManager->getPointInfo(), 2.0); // replace 2.0 with point data for the first point
 
+<<<<<<< HEAD
 }
 
 void MainWindow::showSwitchProfilePage() {
@@ -130,6 +141,8 @@ void MainWindow::resetScan() {
 =======
     appManager->resetScan();
 >>>>>>> 87d9ca6 (scan loop works but only updates image and dot)
+=======
+>>>>>>> a63c1e3 (Fixed bug with first image not showing, added battery depletion feature)
 }
 
 void MainWindow::showSwitchProfilePage() {
