@@ -19,22 +19,10 @@ SOURCES += \
     profile.cpp \
     profilepage.cpp \
     radotechdevice.cpp \
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d456991 (basic structure implmented)
     scan.cpp \
     scanner.cpp \
     scanpage.cpp \
     switchprofilepage.cpp
-=======
-    scanpage.cpp
->>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
-=======
-    scanpage.cpp \
-    switchprofilepage.cpp
->>>>>>> ef311ba (added switchprofilepage)
 
 HEADERS += \
     AppManager.h \
@@ -47,22 +35,10 @@ HEADERS += \
     profile.h \
     profilepage.h \
     radotechdevice.h \
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d456991 (basic structure implmented)
     scan.h \
     scanner.h \
     scanpage.h \
     switchprofilepage.h
-=======
-    scanpage.h
->>>>>>> 36ca08a (working mid-integration of on/off skin toggle and scan page ui)
-=======
-    scanpage.h \
-    switchprofilepage.h
->>>>>>> ef311ba (added switchprofilepage)
 
 FORMS += \
     datapage.ui \

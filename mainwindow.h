@@ -30,14 +30,6 @@ private:
     ProfilePage* profilePage;
     ScanPage* scanPage;
     SwitchProfilePage* switchProfilePage;
-<<<<<<< HEAD
-
-    AppManager* appManager;
-
-    void advancePoint();
-    void resetScan();
-=======
->>>>>>> ef311ba (added switchprofilepage)
 
     AppManager* appManager;
 
