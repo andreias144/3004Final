@@ -34,11 +34,15 @@ double Scanner::generateValue(const Profile& profile) {
     // respect bounds
     if (baseValue > MeasurementPoint::getMaxValue()) baseValue = MeasurementPoint::getMaxValue();
     if (baseValue < MeasurementPoint::getMinValue()) baseValue = MeasurementPoint::getMinValue();
+    qDebug() << "Generated value:" << baseValue;
+
 
     return baseValue;
 }
 
 Scan Scanner::performScan(const std::vector<MeasurementPoint>& points, const Profile& profile) {
+    qDebug() << "Number of points:" << points.size();
+
     Scan scan;
     std::map<int, double> symmetricValues;
 

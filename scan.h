@@ -11,7 +11,7 @@ private:
 
 public:
     Scan();
-    std::vector<double> getValues() const;
+    std::vector<double>& getValues();
     double getValueAt(int index) const;
 
 };

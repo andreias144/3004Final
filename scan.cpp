@@ -4,7 +4,7 @@
 
 Scan::Scan() : scanDate(QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss")) {}
 
-std::vector<double> Scan::getValues() const {
+std::vector<double>& Scan::getValues() {
     return values;
 }
 
