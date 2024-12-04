@@ -82,6 +82,7 @@ void MainWindow::showDataPage() {
 void MainWindow::showScanPage() {
     appManager->triggerScan();
     scanPage->scanInit();
+    advancePoint();
     ui->stackedWidget->setCurrentWidget(scanPage);
 }
 

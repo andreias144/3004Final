@@ -74,11 +74,11 @@ void AppManager::initializeMeasurementPoints() {
 }
 
 MeasurementPoint AppManager::getPointInfo() {
-    return measurementPoints[currScanPoint];
+    return measurementPoints[currScanPoint-1];
 }
 
 void AppManager::triggerScan() {
-    currScanPoint = 1;
+    currScanPoint = 0;
     std::vector<MeasurementPoint> points = getMeasurementPoints();
     Scan scan = scanner.performScan(points, *activeProfile);
     activeProfile->addScan(scan);
@@ -86,6 +86,6 @@ void AppManager::triggerScan() {
 
 bool AppManager::advancePoint() {
     currScanPoint++;
-    return (currScanPoint == 23);
+    return (currScanPoint == 24);
 }
 
