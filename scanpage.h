@@ -10,6 +10,8 @@
 #include "defs.h"
 #include "global.h"
 #include "measurementpoint.h"
+#include <QLCDNumber>
+
 
 static const QPoint POINT_1(100, 200);
 static const QPoint POINT_2(300, 400);
@@ -24,7 +26,7 @@ class ScanPage : public QWidget
     Q_OBJECT
 
 public:
-    explicit ScanPage(QWidget *parent = nullptr);
+    explicit ScanPage(QWidget *parent = nullptr, QLCDNumber *batteryIndicator = nullptr);
     ~ScanPage();
     void updateUI(MeasurementPoint, double);
     void lastPoint();
@@ -33,10 +35,16 @@ private:
     Ui::ScanPage *ui;
     QGraphicsScene scene;
 
+    QLCDNumber *batteryIndicator;
+
+
 signals:
     void viewResults();
     void nextPoint();
     void scanOver();
+
+    void returnToMainWindow();
+
 
 private slots:
     void resultsButtonClicked();

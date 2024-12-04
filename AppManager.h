@@ -1,13 +1,13 @@
 #ifndef APPMANAGER_H
 #define APPMANAGER_H
 
+
 #include <QObject>
 #include "profile.h"
 #include "measurementpoint.h"
 #include "scanner.h"
 #include <vector>
 #include <memory>
-
 
 class AppManager {
 public:
@@ -24,6 +24,7 @@ public:
     const std::vector<std::unique_ptr<Profile>>& getProfiles() const;
 
     const std::vector<MeasurementPoint>& getMeasurementPoints() const;
+
     MeasurementPoint getPointInfo();
 
 private:

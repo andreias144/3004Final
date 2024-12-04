@@ -38,6 +38,7 @@ void MenuPage::switchProfileButtonClicked() {
     emit switchProfile();
 }
 
+
 void MenuPage::updateProfileDisplay()
 {
     Profile* activeProfile = appManager->getActiveProfile();

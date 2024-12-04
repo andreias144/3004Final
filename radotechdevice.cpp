@@ -13,7 +13,8 @@ int radoTechDevice::getBatteryLevel() {
 }
 
 int radoTechDevice::decreaseBatteryLevel() {
-    this->batteryLevel -= 20;
+
+    this->batteryLevel -= 2;
 
     //If device is dead
     if (this->batteryLevel <= 0) {

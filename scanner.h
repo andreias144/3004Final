@@ -5,6 +5,8 @@
 #include "measurementpoint.h"
 #include "profile.h"
 #include <vector>
+#include "global.h"
+
 
 class Scanner {
 public:

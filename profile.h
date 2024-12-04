@@ -16,6 +16,7 @@ private:
 public:
     explicit Profile(const QString& userName, int userAge, double userHeight, double userWeight);
 
+
     QString getName() const;
     int getAge() const;
     double getHeight() const;
@@ -24,6 +25,7 @@ public:
     void setAge(int age);
     void setHeight(double height);
     void setWeight(double weight);
+
 
     void addScan(Scan scan);
     const std::vector<Scan>& getScans() const;

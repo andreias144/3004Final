@@ -1,6 +1,7 @@
 #include "switchprofilepage.h"
 #include "ui_switchprofilepage.h"
 
+
 SwitchProfilePage::SwitchProfilePage(AppManager* appManager, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SwitchProfilePage),
@@ -15,6 +16,7 @@ SwitchProfilePage::SwitchProfilePage(AppManager* appManager, QWidget *parent) :
     loadProfiles();
 
     connect(ui->profileListWidget, &QListWidget::currentItemChanged, this, &SwitchProfilePage::profileSelectionChanged);
+
 }
 
 SwitchProfilePage::~SwitchProfilePage()
@@ -25,6 +27,7 @@ SwitchProfilePage::~SwitchProfilePage()
 void SwitchProfilePage::doneButtonClicked() {
     emit backToMenu();
 }
+
 
 
 void SwitchProfilePage::loadProfiles()
@@ -63,3 +66,4 @@ void SwitchProfilePage::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
     loadProfiles();
 }
+

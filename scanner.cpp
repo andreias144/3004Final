@@ -10,6 +10,7 @@ Scan Scanner::performScan(const std::vector<MeasurementPoint>& measurementPoints
     for (const auto& point : measurementPoints) {
         double value = generateValue(point, Profile);
         scan.values.push_back(value);
+
     }
 
     return scan;
