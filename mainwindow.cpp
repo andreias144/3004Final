@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDebug>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -45,13 +46,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->stackedWidget->addWidget(switchProfilePage);
 
     // set default
-    ui->stackedWidget->setCurrentWidget(profilePage);
+    ui->stackedWidget->setCurrentWidget(menuPage);
 
     //Set default battery value (100)
     ui->batteryIndicator->display(100);
 
     // set up appmanager
-    appManager = new AppManager();
+
 
 }
 
@@ -75,6 +76,7 @@ void MainWindow::showProfilePage() {
 void MainWindow::showMenuPage() {
 //     Prevents user from accessing menu if they havent made a profile yet
     if (!appManager->getActiveProfile()) {
+        qInfo() << "The active profile is " << appManager->getActiveProfile()->getName();
         QMessageBox::warning(this, "No Profile", "Create a profile before accessing the menu");
         showProfilePage();
         return;

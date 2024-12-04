@@ -26,6 +26,7 @@ ProfilePage::~ProfilePage()
 }
 
 void ProfilePage::doneButtonClicked() {
+
     QString profileName = ui->nameLineEdit->text().trimmed();
     QString ageText = ui->ageLineEdit->text();
     QString weightText = ui->weightLineEdit->text();

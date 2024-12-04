@@ -1,17 +1,19 @@
 #include "AppManager.h"
-
+#include <QDebug>
 AppManager::AppManager() : activeProfile(nullptr) {
     initializeMeasurementPoints();
     resetScan();
 }
 
 void AppManager::addProfile(const QString& name, int age, double height, double weight) {
+
     auto newProfile = std::unique_ptr<Profile>(new Profile(name, age, height, weight));
 
     profiles.push_back(std::move(newProfile));
 
     activeProfile = profiles.back().get();
-    qInfo("Got active profile");
+    qInfo()<<"Got active profile "<<activeProfile->getName();
+
 
 
 
