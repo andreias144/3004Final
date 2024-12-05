@@ -19,3 +19,7 @@ QPoint MeasurementPoint::getPosition() {
 QString MeasurementPoint::getImagePath() {
     return imagePath;
 }
+
+const Organ* MeasurementPoint::getOrgan() const{
+    return organ;
+}

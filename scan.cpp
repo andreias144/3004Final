@@ -14,3 +14,11 @@ double Scan::getValueAt(int index) const {
     }
     return values[index];
 }
+
+const std::map<int, std::string>& Scan::getDiagnoses() const {
+    return diagnoses;
+}
+
+void Scan::setDiagnosis(int pointID, const std::string& diagnosis) {
+    diagnoses[pointID] = diagnosis;
+}

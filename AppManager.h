@@ -6,6 +6,7 @@
 #include "profile.h"
 #include "measurementpoint.h"
 #include "scanner.h"
+#include "scanevaluator.h"
 #include <vector>
 #include <memory>
 
@@ -35,6 +36,7 @@ private:
     void initializeMeasurementPoints();
 
     Scanner scanner;
+    ScanEvaluator scanEvaluator;
 
     int currScanPoint;
 };

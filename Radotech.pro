@@ -16,10 +16,12 @@ SOURCES += \
     mainwindow.cpp \
     measurementpoint.cpp \
     menupage.cpp \
+    organ.cpp \
     profile.cpp \
     profilepage.cpp \
     radotechdevice.cpp \
     scan.cpp \
+    scanevaluator.cpp \
     scanner.cpp \
     scanpage.cpp \
     switchprofilepage.cpp
@@ -32,10 +34,12 @@ HEADERS += \
     mainwindow.h \
     measurementpoint.h \
     menupage.h \
+    organ.h \
     profile.h \
     profilepage.h \
     radotechdevice.h \
     scan.h \
+    scanevaluator.h \
     scanner.h \
     scanpage.h \
     switchprofilepage.h

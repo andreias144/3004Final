@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <QPointF>
+#include "Organ.h"
 
 class MeasurementPoint {
     private:
@@ -10,6 +11,8 @@ class MeasurementPoint {
         QString description;     // description, e.g. "Left Hand, Point 1"
         QPoint position;        // Coordinates stored as QPoints
         QString imagePath;
+
+        const Organ* organ;
 
         static constexpr double minValue = 5.0;
         static constexpr double maxValue = 180.0;
@@ -23,6 +26,8 @@ public:
         QString getDescription();
         QPoint getPosition();
         QString getImagePath();
+
+        const Organ* getOrgan() const;
 
         static double getMinValue() { return minValue; }
         static double getMaxValue() { return maxValue; }
