@@ -12,10 +12,10 @@ MainWindow::MainWindow(QWidget *parent)
 
     // create instances of all pages
     menuPage = new MenuPage(appManager, this);
-   dataPage = new DataPage(this);
-   profilePage = new ProfilePage(appManager, this);
-   scanPage = new ScanPage(this);
-   switchProfilePage = new SwitchProfilePage(appManager, this);
+    dataPage = new DataPage(this);
+    profilePage = new ProfilePage(appManager, this);
+    scanPage = new ScanPage(this, ui->batteryIndicator);
+    switchProfilePage = new SwitchProfilePage(appManager, this);
 
     // set up page navigation functions:
 
@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(dataPage,  &DataPage::backToMenu, this, &MainWindow::showMenuPage);
     connect(profilePage,  &ProfilePage::backToMenu, this, &MainWindow::showMenuPage);
     connect(scanPage,  &ScanPage::viewResults, this, &MainWindow::showDataPage);
+    connect(scanPage,  &ScanPage::returnToMainWindow, this, &MainWindow::showMenuPage);
     connect(switchProfilePage,  &SwitchProfilePage::backToMenu, this, &MainWindow::showMenuPage);
 
     // set up other communication functions:
@@ -44,6 +45,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     // set default
     ui->stackedWidget->setCurrentWidget(profilePage);
+
+    //Set default battery value (100)
+    ui->batteryIndicator->display(100);
 }
 
 MainWindow::~MainWindow()

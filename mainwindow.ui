@@ -50,7 +50,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>RaDoTech Application                          Battery: 100%</string>
+    <string>RaDoTech Application                     Battery :</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="batteryIndicator">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>0</y>
+     <width>81</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(0, 0, 0);</string>
     </property>
    </widget>
   </widget>

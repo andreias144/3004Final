@@ -1,12 +1,12 @@
 #include "scanpage.h"
 #include "ui_scanpage.h"
 #include <QDebug>
-
+#include <QMessageBox>
 
 //temp
 #include <QFile>
 
-ScanPage::ScanPage(QWidget *parent) :
+ScanPage::ScanPage(QWidget *parent, QLCDNumber *batteryIndicator) :
     QWidget(parent),
     ui(new Ui::ScanPage)
 {
@@ -14,6 +14,8 @@ ScanPage::ScanPage(QWidget *parent) :
 
     connect(ui->resultsButton, &QPushButton::released, this, &ScanPage::resultsButtonClicked);
     connect(ui->skinToggleButton, &QPushButton::released, this, &ScanPage::deviceToggled);
+
+    this->batteryIndicator = batteryIndicator;
 
 }
 
@@ -29,6 +31,22 @@ void ScanPage::scanInit() {
 
 
 void ScanPage::updateUI(MeasurementPoint p, double data) {
+
+    //Adjust battery value
+    this->batteryIndicator->display(device->decreaseBatteryLevel());
+
+    if (device->getBatteryLevel() == 0) {
+
+        QMessageBox::warning(this, "Device out of battery", "The RadoTech device is out of battery. Please charge the device before attempting to scan.");
+        emit scanOver();
+
+        //Go to menu
+        emit returnToMainWindow();
+    }
+
+    else if (device->getBatteryLevel() == 20) {
+        QMessageBox::warning(this, "Device battery level low", "The RadoTech device battery level is currently low. Please charge the device.");
+    }
 
     // set up image (change this to only run when necessary)
     scene.clear();
