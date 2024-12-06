@@ -1,4 +1,4 @@
-#include "Organ.h"
+#include "organ.h"
 
 Organ::Organ(const QString& name, const QString& iconPath)
     : name(name), iconPath(iconPath) {}

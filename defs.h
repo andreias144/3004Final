@@ -7,4 +7,6 @@
 
 using namespace std;
 
+#define NUM_ORGANS  11
+
 #endif // DEFS_H

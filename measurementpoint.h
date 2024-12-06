@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QPointF>
-#include "Organ.h"
+#include "organ.h"
 
 class MeasurementPoint {
     private:

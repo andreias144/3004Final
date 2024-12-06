@@ -1,5 +1,5 @@
-#include "Scan.h"
-#include "MeasurementPoint.h"
+#include "scan.h"
+#include "measurementpoint.h"
 
 class ScanEvaluator {
 public:

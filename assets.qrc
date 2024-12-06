@@ -4,5 +4,6 @@
         <file>imageLH.png</file>
         <file>imageRF.png</file>
         <file>imageRH.png</file>
+        <file>1-heart.png</file>
     </qresource>
 </RCC>

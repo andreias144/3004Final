@@ -13,24 +13,77 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>50</y>
-     <width>62</width>
-     <height>17</height>
+     <x>0</x>
+     <y>0</y>
+     <width>401</width>
+     <height>251</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Data</string>
-   </property>
+   <widget class="QWidget" name="noData">
+    <widget class="QLabel" name="noDataNotice">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>90</y>
+       <width>191</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>There is no data to display. Take a scan to get started!</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="data">
+    <widget class="QTableView" name="organTable">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>40</y>
+       <width>261</width>
+       <height>201</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="currScanLabel">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>10</y>
+       <width>261</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Showing data for scan taken on (date):</string>
+     </property>
+    </widget>
+    <widget class="QListView" name="scanList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>101</width>
+       <height>201</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QPushButton" name="menuButton">
    <property name="geometry">
     <rect>
      <x>140</x>
-     <y>120</y>
+     <y>260</y>
      <width>111</width>
      <height>25</height>
     </rect>
