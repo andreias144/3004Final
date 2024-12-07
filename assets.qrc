@@ -4,6 +4,16 @@
         <file>imageLH.png</file>
         <file>imageRF.png</file>
         <file>imageRH.png</file>
-        <file>1-heart.png</file>
+        <file>1-lungs.png</file>
+        <file>2-heartrate.png</file>
+        <file>3-heart.png</file>
+        <file>4-largeintestine.png</file>
+        <file>5-smallintestine.png</file>
+        <file>6-immunesystem.png</file>
+        <file>7-pancreas.png</file>
+        <file>8-liver.png</file>
+        <file>9-kidneys.png</file>
+        <file>10-bladder.png</file>
+        <file>11-stomach.png</file>
     </qresource>
 </RCC>

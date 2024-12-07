@@ -59,6 +59,10 @@ void ScanPage::updateUI(MeasurementPoint p, double data) {
     // change dot position
     ui->dot->move(p.getPosition());
 
+    ui->value->setText("");
+    // update scan data (this won't be shown until the device is on skin)
+    currValue = data;
+
     // update point name
     QString text = "Point " + QString::number(p.getID());
     ui->pointName->setText(text);
@@ -72,6 +76,8 @@ void ScanPage::deviceToggled() {
     if (device->toggleOnSkin()) {
         ui->skinToggleButton->setText("Remove off skin");
         ui->skinStatus->setText("Current status : On skin");
+        // show scan data
+        ui->value->setText("Result: " + QString::number(currValue));
     }
 
     //If the device is off the skin after being toggled

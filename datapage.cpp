@@ -31,13 +31,13 @@ void DataPage::setupOrganTable() {
     for (int i = 0; i < NUM_ORGANS; i++) {
 
         // set organ picture
-        QPixmap organ(":/images/1-heart.png"); //temp
+        QPixmap organ(":/images/1-lungs.png"); //temp
         QStandardItem* imageItem = new QStandardItem;
         imageItem->setIcon(organ);
         content->setItem(i, 0, imageItem);
 
         // set organ text
-        QStandardItem* organText = new QStandardItem("Heart");
+        QStandardItem* organText = new QStandardItem("Lungs"); //temp
         content->setItem(i, 1, organText);
 
     }

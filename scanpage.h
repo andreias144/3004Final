@@ -35,6 +35,7 @@ private:
     Ui::ScanPage *ui;
     QGraphicsScene scene;
     QLCDNumber *batteryIndicator;
+    double currValue;
 
 signals:
     void viewResults();
