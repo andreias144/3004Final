@@ -12,6 +12,7 @@ DataPage::DataPage(QWidget *parent) :
     ui->stackedWidget->setCurrentWidget(ui->data);
 
     setupOrganTable();
+    loadHeatmap(); // temp
 }
 
 DataPage::~DataPage()
@@ -59,6 +60,19 @@ void DataPage::loadForNewProfile(Profile* p) {
 
 }
 
-void DataPage::addScan(Scan* s) {
+void DataPage::addScan() {
+
+}
+
+void DataPage::loadHeatmap() {
+
+    for (int i = 0; i < NUM_ORGANS; i++) {
+
+        // set heatmap
+        QStandardItem* heatmapItem = new QStandardItem;
+        heatmapItem->setBackground(Average); //temp
+        content->setItem(i, 2, heatmapItem);
+
+    }
 
 }

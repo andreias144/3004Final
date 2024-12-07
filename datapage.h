@@ -7,6 +7,11 @@
 #include <QStandardItemModel>
 #include <QGraphicsPixmapItem>
 #include <QAbstractItemView>
+#include <QColor>
+
+const QColor AboveAverage(127, 215, 240);
+const QColor Average(157, 227, 143);
+const QColor BelowAverage(252, 204, 28);
 
 namespace Ui {
 class DataPage;
@@ -20,7 +25,8 @@ public:
     explicit DataPage(QWidget *parent = nullptr);
     ~DataPage();
     void loadForNewProfile(Profile*);
-    void addScan(Scan*);
+    void addScan();
+    void loadHeatmap();
 
 private:
     Ui::DataPage *ui;

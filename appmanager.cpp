@@ -10,7 +10,6 @@ void AppManager::addProfile(const QString& name, int age, double height, double 
     profiles.push_back(std::move(newProfile));
     activeProfile = profiles.back().get();
 
-
 }
 
 void AppManager::removeProfile(int index) {
