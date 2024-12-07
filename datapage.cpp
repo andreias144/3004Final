@@ -8,11 +8,10 @@ DataPage::DataPage(QWidget *parent) :
     ui->setupUi(this);
     connect(ui->menuButton, &QPushButton::released, this, &DataPage::menuButtonClicked);
 
-    // set default widget (temp for debugging)
-    ui->stackedWidget->setCurrentWidget(ui->data);
+    // set default widget
+    ui->stackedWidget->setCurrentWidget(ui->noData);
 
     setupOrganTable();
-    loadHeatmap(); // temp
 }
 
 DataPage::~DataPage()
@@ -27,7 +26,7 @@ void DataPage::menuButtonClicked() {
 void DataPage::setupOrganTable() {
 
 
-    content = new QStandardItemModel(NUM_ORGANS, 3, this);
+    organTableContent = new QStandardItemModel(NUM_ORGANS, 3, this);
 
     for (int i = 0; i < NUM_ORGANS; i++) {
 
@@ -35,11 +34,11 @@ void DataPage::setupOrganTable() {
         QPixmap organ(":/images/1-lungs.png"); //temp
         QStandardItem* imageItem = new QStandardItem;
         imageItem->setIcon(organ);
-        content->setItem(i, 0, imageItem);
+        organTableContent->setItem(i, 0, imageItem);
 
         // set organ text
         QStandardItem* organText = new QStandardItem("Lungs"); //temp
-        content->setItem(i, 1, organText);
+        organTableContent->setItem(i, 1, organText);
 
     }
 
@@ -47,7 +46,7 @@ void DataPage::setupOrganTable() {
     ui->organTable->verticalHeader()->setVisible(false);
     ui->organTable->horizontalHeader()->setVisible(false);
 
-    ui->organTable->setModel(content);
+    ui->organTable->setModel(organTableContent);
     ui->organTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // set column sizes
@@ -56,23 +55,32 @@ void DataPage::setupOrganTable() {
 
 }
 
-void DataPage::loadForNewProfile(Profile* p) {
+void DataPage::loadForProfile(Profile* p) {
+
+    profile = p;
+    try {
+        const Scan& scan = profile->getLastScan();
+        ui->stackedWidget->setCurrentWidget(ui->data);
+        loadHeatmap(scan.getDate());
+    } catch (const runtime_error& e) {
+        ui->stackedWidget->setCurrentWidget(ui->noData);
+        return;
+    }
+
 
 }
 
-void DataPage::addScan() {
+void DataPage::loadHeatmap(QString scanDate) {
 
-}
-
-void DataPage::loadHeatmap() {
-
+    ui->currScanLabel->setText("Showing data for scan taken on <b>" + scanDate + "</b>");
     for (int i = 0; i < NUM_ORGANS; i++) {
 
         // set heatmap
         QStandardItem* heatmapItem = new QStandardItem;
         heatmapItem->setBackground(Average); //temp
-        content->setItem(i, 2, heatmapItem);
+        organTableContent->setItem(i, 2, heatmapItem);
 
     }
+
 
 }

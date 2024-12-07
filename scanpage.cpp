@@ -97,3 +97,5 @@ void ScanPage::lastPoint() {
 void ScanPage::resultsButtonClicked() {
     emit viewResults();
 }
+
+

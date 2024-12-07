@@ -48,7 +48,7 @@
      <property name="geometry">
       <rect>
        <x>130</x>
-       <y>40</y>
+       <y>50</y>
        <width>261</width>
        <height>201</height>
       </rect>
@@ -57,9 +57,9 @@
     <widget class="QLabel" name="currScanLabel">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>10</y>
-       <width>261</width>
+       <x>20</x>
+       <y>20</y>
+       <width>371</width>
        <height>20</height>
       </rect>
      </property>
@@ -71,7 +71,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>50</y>
        <width>101</width>
        <height>201</height>
       </rect>

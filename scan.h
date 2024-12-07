@@ -15,6 +15,7 @@ public:
     Scan();
     std::vector<double>& getValues();
     double getValueAt(int index) const;
+    QString getDate() const;
 
 
     const std::map<int, std::string>& getDiagnoses() const;

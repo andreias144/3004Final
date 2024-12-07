@@ -22,3 +22,7 @@ const std::map<int, std::string>& Scan::getDiagnoses() const {
 void Scan::setDiagnosis(int pointID, const std::string& diagnosis) {
     diagnoses[pointID] = diagnosis;
 }
+
+QString Scan::getDate() const{
+    return scanDate;
+}

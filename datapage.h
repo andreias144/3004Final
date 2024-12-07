@@ -24,14 +24,14 @@ class DataPage : public QWidget
 public:
     explicit DataPage(QWidget *parent = nullptr);
     ~DataPage();
-    void loadForNewProfile(Profile*);
-    void addScan();
-    void loadHeatmap();
+    void loadForProfile(Profile*);
+    void loadHeatmap(QString scanDate);
 
 private:
     Ui::DataPage *ui;
     void setupOrganTable();
-    QStandardItemModel* content;
+    QStandardItemModel* organTableContent;
+    Profile* profile;
 
 signals:
     void backToMenu();

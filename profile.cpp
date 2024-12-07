@@ -31,3 +31,6 @@ const Scan& Profile::getLastScan() const {
     throw std::runtime_error("Scan history is empty");
 }
 
+
+
+

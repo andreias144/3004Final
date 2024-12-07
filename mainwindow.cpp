@@ -80,6 +80,7 @@ void MainWindow::showMenuPage() {
 }
 
 void MainWindow::showDataPage() {
+    dataPage->loadForProfile(appManager->getActiveProfile());
     ui->stackedWidget->setCurrentWidget(dataPage);
 }
 
@@ -99,7 +100,6 @@ void MainWindow::advancePoint() {
     MeasurementPoint currPoint = appManager->getPointInfo();
     int scanPointIndex = currPoint.getID();
     scanPage->updateUI(currPoint, appManager->getActiveProfile()->getLastScan().getValueAt(scanPointIndex - 1));
-    //scanPage->updateUI(currPoint, 2.0);
     if (isLastPoint) {
         scanPage->lastPoint();
     }
