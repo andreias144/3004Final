@@ -8,6 +8,7 @@ DataPage::DataPage(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->menuButton, &QPushButton::released, this, &DataPage::menuButtonClicked);
+    connect(ui->recommendationsButton, &QPushButton::released, this, &DataPage::recommendationsButtonClicked);
     connect(ui->noDataMenuButton, &QPushButton::released, this, &DataPage::menuButtonClicked);
     connect(ui->scanList, &QListView::clicked, this, &DataPage::scanListItemClicked);
 
@@ -28,6 +29,9 @@ void DataPage::menuButtonClicked() {
     emit backToMenu();
 }
 
+void DataPage::recommendationsButtonClicked() {
+    emit recommendations();
+}
 
 void DataPage::setupLegend() {
     ui->aboveAverageIcon->setStyleSheet("color: " + aboveNormalColour.name());

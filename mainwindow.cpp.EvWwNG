@@ -33,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(scanPage,  &ScanPage::returnToMainWindow, this, &MainWindow::showMenuPage);
     connect(switchProfilePage,  &SwitchProfilePage::backToMenu, this, &MainWindow::showMenuPage);
     connect(dataPage,  &DataPage::recommendations, this, &MainWindow::showRecommendationsPage);
-    connect(recommendationsPage,  &RecommendationsPage::backToData, this, &MainWindow::showDataPage);
+    connect(recommendationsPage,  &RecommendationsPage::backToData, this, &MainWindow::showRecommendationsPage);
 
     // set up other communication functions:
 

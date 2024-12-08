@@ -20,6 +20,7 @@ SOURCES += \
     profile.cpp \
     profilepage.cpp \
     radotechdevice.cpp \
+    recommendationspage.cpp \
     scan.cpp \
     scanevaluator.cpp \
     scanner.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     profile.h \
     profilepage.h \
     radotechdevice.h \
+    recommendationspage.h \
     scan.h \
     scanevaluator.h \
     scanner.h \
@@ -50,6 +52,7 @@ FORMS += \
     mainwindow.ui \
     menupage.ui \
     profilepage.ui \
+    recommendationspage.ui \
     scanpage.ui \
     switchprofilepage.ui
 
