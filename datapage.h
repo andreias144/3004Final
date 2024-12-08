@@ -35,6 +35,7 @@ private:
     QStandardItemModel* organTableContent;
     QStandardItemModel* scanListContent;
     Profile* profile;
+    void setupLegend();
 
 signals:
     void backToMenu();

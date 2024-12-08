@@ -8,12 +8,15 @@ DataPage::DataPage(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->menuButton, &QPushButton::released, this, &DataPage::menuButtonClicked);
+    connect(ui->noDataMenuButton, &QPushButton::released, this, &DataPage::menuButtonClicked);
     connect(ui->scanList, &QListView::clicked, this, &DataPage::scanListItemClicked);
 
     // set default widget
     ui->stackedWidget->setCurrentWidget(ui->noData);
 
     scanListContent = new QStandardItemModel(this);
+
+    setupLegend();
 }
 
 DataPage::~DataPage()
@@ -23,6 +26,13 @@ DataPage::~DataPage()
 
 void DataPage::menuButtonClicked() {
     emit backToMenu();
+}
+
+
+void DataPage::setupLegend() {
+    ui->aboveAverageIcon->setStyleSheet("color: " + aboveNormalColour.name());
+    ui->averageIcon->setStyleSheet("color: "+ normalColour.name());
+    ui->belowAverageIcon->setStyleSheet("color: "+ belowNormalColour.name());
 }
 
 void DataPage::setupOrganTable(const vector<Organ>& organs) {
