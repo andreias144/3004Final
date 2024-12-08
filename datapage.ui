@@ -47,9 +47,9 @@
     <widget class="QTableView" name="organTable">
      <property name="geometry">
       <rect>
-       <x>130</x>
+       <x>200</x>
        <y>50</y>
-       <width>261</width>
+       <width>191</width>
        <height>201</height>
       </rect>
      </property>
@@ -72,7 +72,7 @@
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>101</width>
+       <width>171</width>
        <height>201</height>
       </rect>
      </property>

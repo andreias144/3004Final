@@ -12,6 +12,7 @@ DataPage::DataPage(QWidget *parent) :
     ui->stackedWidget->setCurrentWidget(ui->noData);
 
     setupOrganTable();
+    scanListContent = new QStandardItemModel(this);
 }
 
 DataPage::~DataPage()
@@ -51,7 +52,7 @@ void DataPage::setupOrganTable() {
 
     // set column sizes
     ui->organTable->setColumnWidth(0, 30); // First column width
-    ui->organTable->setColumnWidth(1, 100); // Second column width
+    ui->organTable->setColumnWidth(2, 45); // Second column width
 
 }
 
@@ -66,6 +67,18 @@ void DataPage::loadForProfile(Profile* p) {
         ui->stackedWidget->setCurrentWidget(ui->noData);
         return;
     }
+
+    scanListContent->clear();
+
+    const std::vector<Scan>& scans = profile->getScans(); // storee scans from profile
+
+    // iterate through scans and add them to the scan list content
+    for (size_t i = 0; i < scans.size(); i++)  {
+        QStandardItem* scanDate = new QStandardItem(scans[i].getDate());
+        scanListContent->appendRow(scanDate);
+    }
+
+    ui->scanList->setModel(scanListContent);
 
 
 }

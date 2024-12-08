@@ -31,6 +31,7 @@ private:
     Ui::DataPage *ui;
     void setupOrganTable();
     QStandardItemModel* organTableContent;
+    QStandardItemModel* scanListContent;
     Profile* profile;
 
 signals:

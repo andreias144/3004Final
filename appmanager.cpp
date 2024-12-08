@@ -78,7 +78,7 @@ MeasurementPoint AppManager::getPointInfo() {
 }
 
 void AppManager::triggerScan() {
-    currScanPoint = 0;
+    currScanPoint = 20;
     std::vector<MeasurementPoint> points = getMeasurementPoints();
     Scan scan = scanner.performScan(points, *activeProfile);
     activeProfile->addScan(scan);
