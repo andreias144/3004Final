@@ -15,6 +15,7 @@ MenuPage::MenuPage(AppManager* appManager, QWidget *parent) :
     connect(ui->switchProfileButton, &QPushButton::released, this, &MenuPage::switchProfileButtonClicked);
 
     updateProfileDisplay();
+    loadRaDoTechImage();
 }
 
 MenuPage::~MenuPage()
@@ -46,4 +47,13 @@ void MenuPage::updateProfileDisplay()
     } else {
         ui->currentProfileLabel->setText("Current Profile: None");
     }
+}
+
+void MenuPage::loadRaDoTechImage() {
+    QPixmap pixmap(":/images/raDoTechDevice.png");
+    QGraphicsPixmapItem *pixmapItem = scene.addPixmap(pixmap);
+    ui->raDoTechImage->setScene(&scene);
+    scene.setSceneRect(pixmapItem->sceneBoundingRect());
+    ui->raDoTechImage->fitInView(scene.sceneRect(), Qt::KeepAspectRatio);
+    ui->raDoTechImage->show();
 }

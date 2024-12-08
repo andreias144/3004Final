@@ -177,19 +177,6 @@ background-color: transparent;
     <string>•</string>
    </property>
   </widget>
-  <widget class="Line" name="line">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>-7</y>
-     <width>401</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
   <widget class="QLabel" name="pointName">
    <property name="geometry">
     <rect>

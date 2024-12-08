@@ -2,6 +2,10 @@
 #define MENUPAGE_H
 
 #include <QWidget>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsPixmapItem>
+#include <QPixmap>
 #include "defs.h"
 #include "AppManager.h"
 
@@ -21,6 +25,8 @@ public:
 private:
     Ui::MenuPage *ui;
     AppManager* appManager;
+    QGraphicsScene scene;
+    void loadRaDoTechImage();
 
 signals:
     void addProfile();
