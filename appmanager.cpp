@@ -52,6 +52,7 @@ void AppManager::triggerScan() {
     std::vector<MeasurementPoint> points = getMeasurementPoints();
     Scan scan = scanner.performScan(points, *activeProfile);
     activeProfile->addScan(scan);
+    scanEvaluator.evaluateScan(scan, measurementPoints);
 }
 
 bool AppManager::advancePoint() {

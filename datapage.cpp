@@ -114,10 +114,13 @@ void DataPage::loadHeatmap(QString scanDate) {
         switch (diagnoses[i]) {
             case Diagnosis::BelowNormal:
                 bgColour = belowNormalColour;
+                break;
             case Diagnosis::Normal:
                 bgColour = normalColour;
+                break;
             case Diagnosis::AboveNormal:
                 bgColour = aboveNormalColour;
+                break;
         }
 
         // Load random colours:
