@@ -116,7 +116,7 @@
       <string>Back to menu</string>
      </property>
     </widget>
-    <widget class="QLabel" name="aboveAverageIcon">
+    <widget class="QLabel" name="aboveNormalIcon">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -134,7 +134,7 @@
       <string>■</string>
      </property>
     </widget>
-    <widget class="QLabel" name="belowAverageIcon">
+    <widget class="QLabel" name="belowNormalIcon">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -152,7 +152,7 @@
       <string>■</string>
      </property>
     </widget>
-    <widget class="QLabel" name="averageIcon">
+    <widget class="QLabel" name="normalIcon">
      <property name="geometry">
       <rect>
        <x>210</x>
@@ -175,12 +175,12 @@
       <rect>
        <x>240</x>
        <y>220</y>
-       <width>111</width>
+       <width>141</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Above average</string>
+      <string>Above normal range</string>
      </property>
     </widget>
     <widget class="QLabel" name="legend2">
@@ -188,12 +188,12 @@
       <rect>
        <x>240</x>
        <y>240</y>
-       <width>111</width>
+       <width>141</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Average</string>
+      <string>Within normal range</string>
      </property>
     </widget>
     <widget class="QLabel" name="legend3">
@@ -201,12 +201,12 @@
       <rect>
        <x>240</x>
        <y>260</y>
-       <width>111</width>
+       <width>131</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
-      <string>Below average</string>
+      <string>Below normal range</string>
      </property>
     </widget>
    </widget>

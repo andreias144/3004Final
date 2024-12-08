@@ -34,9 +34,9 @@ void DataPage::recommendationsButtonClicked() {
 }
 
 void DataPage::setupLegend() {
-    ui->aboveAverageIcon->setStyleSheet("color: " + aboveNormalColour.name());
-    ui->averageIcon->setStyleSheet("color: "+ normalColour.name());
-    ui->belowAverageIcon->setStyleSheet("color: "+ belowNormalColour.name());
+    ui->aboveNormalIcon->setStyleSheet("color: " + aboveNormalColour.name());
+    ui->normalIcon->setStyleSheet("color: "+ normalColour.name());
+    ui->belowNormalIcon->setStyleSheet("color: "+ belowNormalColour.name());
 }
 
 void DataPage::setupOrganTable(const vector<Organ>& organs) {
@@ -122,17 +122,6 @@ void DataPage::loadHeatmap(QString scanDate) {
                 bgColour = aboveNormalColour;
                 break;
         }
-
-        // Load random colours:
-        /*
-        if (i % 3 == 0) {
-            bgColour = belowNormalColour;
-        } else if (i % 3 == 1) {
-            bgColour = normalColour;
-        } else {
-            bgColour = aboveNormalColour;
-        }
-        */
 
         // set heatmap
         QStandardItem* heatmapItem = new QStandardItem;

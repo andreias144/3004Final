@@ -7,9 +7,9 @@
 
 class MeasurementPoint {
     private:
-        int id;              // unique ID, e.g "H1L"
-        QString description;     // description, e.g. "Left Hand, Point 1"
-        QPoint position;        // Coordinates stored as QPoints
+        int id;              // 1 through 24
+        QString description;
+        QPoint position;        // coordinates of the red dot
         QString imagePath;
 
         const Organ* organ;

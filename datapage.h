@@ -11,9 +11,9 @@
 #include <QColor>
 #include "organ.h"
 
-const QColor belowNormalColour(240, 84, 70);
-const QColor normalColour(255, 217, 46);
-const QColor aboveNormalColour(158, 222, 93);
+const QColor belowNormalColour(101,91,217);
+const QColor normalColour(107,222,118);
+const QColor aboveNormalColour(243,85,73);
 
 namespace Ui {
 class DataPage;

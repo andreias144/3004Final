@@ -33,10 +33,10 @@ private:
     std::vector<std::unique_ptr<Profile>> profiles;
     Profile* activeProfile;
 
-    std::vector<MeasurementPoint> measurementPoints; // only point info
+    std::vector<MeasurementPoint> measurementPoints; // info only
     void initializeMeasurementPoints();
 
-    std::vector<Organ> organs; // only point info
+    std::vector<Organ> organs; // info only
     void initializeOrgans();
 
     Scanner scanner;

@@ -48,7 +48,7 @@ MeasurementPoint AppManager::getPointInfo() {
 }
 
 void AppManager::triggerScan() {
-    currScanPoint = 20;
+    currScanPoint = 0; // change this to a higher number to "fast-forward" scan
     std::vector<MeasurementPoint> points = getMeasurementPoints();
     Scan scan = scanner.performScan(points, *activeProfile);
     scanEvaluator.evaluateScan(scan, measurementPoints);
