@@ -92,12 +92,24 @@ void DataPage::scanListItemClicked(const QModelIndex& i) {
 void DataPage::loadHeatmap(QString scanDate) {
 
     ui->currScanLabel->setText("Showing data for scan taken on <b>" + scanDate + "</b>");
-    // todo: get diagnoses based on scanDate
+
+    const std::vector<Diagnosis>& diagnoses = profile->getDiagnosis(scanDate);
+
     for (int i = 0; i < NUM_ORGANS; i++) {
+
+        QColor bgColour;
+        switch (diagnoses[i]) {
+            case Diagnosis::BelowNormal:
+                bgColour = belowNormalColour;
+            case Diagnosis::Normal:
+                bgColour = normalColour;
+            case Diagnosis::AboveNormal:
+                bgColour = aboveNormalColour;
+        }
 
         // set heatmap
         QStandardItem* heatmapItem = new QStandardItem;
-        heatmapItem->setBackground(Average); //temp
+        heatmapItem->setBackground(bgColour);
         organTableContent->setItem(i, 2, heatmapItem);
 
     }

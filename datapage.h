@@ -3,15 +3,16 @@
 
 #include <QWidget>
 #include "profile.h"
+#include "diagnosis.h"
 #include "defs.h"
 #include <QStandardItemModel>
 #include <QGraphicsPixmapItem>
 #include <QAbstractItemView>
 #include <QColor>
 
-const QColor AboveAverage(127, 215, 240);
-const QColor Average(157, 227, 143);
-const QColor BelowAverage(252, 204, 28);
+const QColor belowNormalColour(255, 228, 138);
+const QColor normalColour(233, 240, 156);
+const QColor aboveNormalColour(164, 237, 189);
 
 namespace Ui {
 class DataPage;
