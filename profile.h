@@ -29,6 +29,8 @@ public:
     const std::vector<Scan>& getScans() const;
     const Scan& getLastScan() const;
 
+    const std::vector<Diagnosis>& getDiagnosis(const QString& date) const;
+
 
 
 };

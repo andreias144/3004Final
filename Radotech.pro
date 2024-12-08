@@ -30,6 +30,7 @@ HEADERS += \
     AppManager.h \
     datapage.h \
     defs.h \
+    diagnosis.h \
     global.h \
     mainwindow.h \
     measurementpoint.h \

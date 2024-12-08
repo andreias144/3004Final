@@ -7,7 +7,7 @@
 
 class ScanEvaluator {
 public:
-    // Evaluates a Scan and generates diagnoses for each MeasurementPoint
+    // Evaluates a Scan and generates diagnoses for each organ
     void evaluateScan(Scan& scan, const std::vector<MeasurementPoint>& measurementPoints);
 };
 

@@ -31,6 +31,15 @@ const Scan& Profile::getLastScan() const {
     throw std::runtime_error("Scan history is empty");
 }
 
+const std::vector<Diagnosis>& Profile::getDiagnosis(const QString& date) const {
+    for (const auto& scan : scanHistory) {
+        if (scan.getDate() == date) {
+            return scan.getDiagnoses();
+        }
+    }
+    throw std::invalid_argument("No scan found for the given date: " + date.toStdString());
+}
+
 
 
 

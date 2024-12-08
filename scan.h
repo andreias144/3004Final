@@ -3,13 +3,13 @@
 
 #include <vector>
 #include <QString>
-#include <map>
+#include "diagnosis.h"
 
 class Scan {
 private:
     QString scanDate;
     std::vector<double> values;
-    std::map<int, std::string> diagnoses;
+    std::vector<Diagnosis> diagnoses;
 
 public:
     Scan();
@@ -17,12 +17,8 @@ public:
     double getValueAt(int index) const;
     QString getDate() const;
 
-
-    const std::map<int, std::string>& getDiagnoses() const;
-    void setDiagnosis(int pointID, const std::string& diagnosis);
-
+    const std::vector<Diagnosis>& getDiagnoses() const;
+    void setDiagnosis(size_t index, Diagnosis diagnosis);
 };
 
 #endif // SCAN_H
-
-

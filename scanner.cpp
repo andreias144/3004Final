@@ -70,10 +70,26 @@ Scan Scanner::performScan(const std::vector<MeasurementPoint>& points, const Pro
 }
 
 int Scanner::getSymmetricID(int id) {
-    if (id % 2 == 0) {
-        return id - 1;
+    const int groupSize = 6;
+
+    // points on hands
+    if (id <= 12) {
+        if (id <= groupSize) {
+            return id + groupSize;
+        } else {
+            return id - groupSize;
+        }
     }
-    else {
-        return id + 1;
+
+    // points on feet
+    if (id <= 24) {
+        if (id <= 12 + groupSize) {
+            return id + groupSize;
+        } else {
+            return id - groupSize;
+        }
     }
+    qDebug() << "Invalid MeasurementPoint ID:" << id;
+    return -1; // Fehlerwert
 }
+
