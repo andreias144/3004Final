@@ -9,10 +9,11 @@
 #include <QGraphicsPixmapItem>
 #include <QAbstractItemView>
 #include <QColor>
+#include "organ.h"
 
-const QColor belowNormalColour(255, 228, 138);
-const QColor normalColour(233, 240, 156);
-const QColor aboveNormalColour(164, 237, 189);
+const QColor belowNormalColour(240, 84, 70);
+const QColor normalColour(255, 217, 46);
+const QColor aboveNormalColour(158, 222, 93);
 
 namespace Ui {
 class DataPage;
@@ -25,12 +26,12 @@ class DataPage : public QWidget
 public:
     explicit DataPage(QWidget *parent = nullptr);
     ~DataPage();
+    void setupOrganTable(const vector<Organ>&);
     void loadForProfile(Profile*);
-    void loadHeatmap(QString scanDate);
+    void loadHeatmap(QString);
 
 private:
     Ui::DataPage *ui;
-    void setupOrganTable();
     QStandardItemModel* organTableContent;
     QStandardItemModel* scanListContent;
     Profile* profile;

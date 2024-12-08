@@ -13,7 +13,6 @@ DataPage::DataPage(QWidget *parent) :
     // set default widget
     ui->stackedWidget->setCurrentWidget(ui->noData);
 
-    setupOrganTable();
     scanListContent = new QStandardItemModel(this);
 }
 
@@ -26,21 +25,20 @@ void DataPage::menuButtonClicked() {
     emit backToMenu();
 }
 
-void DataPage::setupOrganTable() {
-
+void DataPage::setupOrganTable(const vector<Organ>& organs) {
 
     organTableContent = new QStandardItemModel(NUM_ORGANS, 3, this);
 
     for (int i = 0; i < NUM_ORGANS; i++) {
 
         // set organ picture
-        QPixmap organ(":/images/1-lungs.png"); //temp
+        QPixmap organ(organs[i].getIconPath()); //temp
         QStandardItem* imageItem = new QStandardItem;
         imageItem->setIcon(organ);
         organTableContent->setItem(i, 0, imageItem);
 
         // set organ text
-        QStandardItem* organText = new QStandardItem("Lungs"); //temp
+        QStandardItem* organText = new QStandardItem(organs[i].getName()); //temp
         organTableContent->setItem(i, 1, organText);
 
     }
@@ -53,8 +51,9 @@ void DataPage::setupOrganTable() {
     ui->organTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // set column sizes
-    ui->organTable->setColumnWidth(0, 30); // First column width
-    ui->organTable->setColumnWidth(2, 60); // Second column width
+    ui->organTable->setColumnWidth(0, 30);
+    ui->organTable->setColumnWidth(1, 115);
+    ui->organTable->setColumnWidth(2, 50);
 
 }
 
@@ -106,6 +105,17 @@ void DataPage::loadHeatmap(QString scanDate) {
             case Diagnosis::AboveNormal:
                 bgColour = aboveNormalColour;
         }
+
+        // Load random colours:
+        /*
+        if (i % 3 == 0) {
+            bgColour = belowNormalColour;
+        } else if (i % 3 == 1) {
+            bgColour = normalColour;
+        } else {
+            bgColour = aboveNormalColour;
+        }
+        */
 
         // set heatmap
         QStandardItem* heatmapItem = new QStandardItem;

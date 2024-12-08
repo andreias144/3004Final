@@ -2,6 +2,7 @@
 
 AppManager::AppManager() : activeProfile(nullptr) {
     initializeMeasurementPoints();
+    initializeOrgans();
 }
 
 void AppManager::addProfile(const QString& name, int age, double height, double weight) {
@@ -42,6 +43,26 @@ const std::vector<MeasurementPoint>& AppManager::getMeasurementPoints() const {
     return measurementPoints;
 }
 
+MeasurementPoint AppManager::getPointInfo() {
+    return measurementPoints[currScanPoint-1];
+}
+
+void AppManager::triggerScan() {
+    currScanPoint = 20;
+    std::vector<MeasurementPoint> points = getMeasurementPoints();
+    Scan scan = scanner.performScan(points, *activeProfile);
+    activeProfile->addScan(scan);
+}
+
+bool AppManager::advancePoint() {
+    currScanPoint++;
+    return (currScanPoint == 24);
+}
+
+const vector<Organ>& AppManager::getOrgans() {
+    return organs;
+}
+
 void AppManager::initializeMeasurementPoints() {
 
     measurementPoints = {
@@ -73,19 +94,20 @@ void AppManager::initializeMeasurementPoints() {
 
 }
 
-MeasurementPoint AppManager::getPointInfo() {
-    return measurementPoints[currScanPoint-1];
-}
-
-void AppManager::triggerScan() {
-    currScanPoint = 20;
-    std::vector<MeasurementPoint> points = getMeasurementPoints();
-    Scan scan = scanner.performScan(points, *activeProfile);
-    activeProfile->addScan(scan);
-}
-
-bool AppManager::advancePoint() {
-    currScanPoint++;
-    return (currScanPoint == 24);
+void AppManager::initializeOrgans() {
+    organs = {
+        {"Lungs", ":/images/1-lungs.png"},
+        {"Heart Rate", ":/images/2-heartrate.png"},
+        {"Heart", ":/images/3-heart.png"},
+        {"Large Intestine", ":/images/4-largeintestine.png"},
+        {"Small Intestine", ":/images/5-smallintestine.png"},
+        {"Immune System", ":/images/6-immunesystem.png"},
+        {"Pancreas", ":/images/7-pancreas.png"},
+        {"Liver", ":/images/8-liver.png"},
+        {"Kidneys", ":/images/9-kidneys.png"},
+        {"Bladder", ":/images/10-bladder.png"},
+        {"Stomach", ":/images/11-stomach.png"},
+        {"Gallbladder", ":/images/12-gallbladder.png"},
+    };
 }
 

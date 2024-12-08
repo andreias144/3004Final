@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     // create instances of all pages
     menuPage = new MenuPage(appManager, this);
     dataPage = new DataPage(this);
+    dataPage->setupOrganTable(appManager->getOrgans());
     profilePage = new ProfilePage(appManager, this);
     scanPage = new ScanPage(this, ui->batteryIndicator);
     switchProfilePage = new SwitchProfilePage(appManager, this);

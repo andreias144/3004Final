@@ -21,6 +21,7 @@ public:
     bool advancePoint();
     int getCurrPoint();
     void triggerScan();
+    const vector<Organ>& getOrgans();
 
     Profile* getActiveProfile() const;
     const std::vector<std::unique_ptr<Profile>>& getProfiles() const;
@@ -34,6 +35,9 @@ private:
 
     std::vector<MeasurementPoint> measurementPoints; // only point info
     void initializeMeasurementPoints();
+
+    std::vector<Organ> organs; // only point info
+    void initializeOrgans();
 
     Scanner scanner;
     ScanEvaluator scanEvaluator;
