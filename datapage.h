@@ -39,6 +39,7 @@ signals:
 
 private slots:
     void menuButtonClicked();
+    void scanListItemClicked(const QModelIndex&);
 };
 
 #endif // DATAPAGE_H

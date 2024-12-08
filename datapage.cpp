@@ -6,7 +6,9 @@ DataPage::DataPage(QWidget *parent) :
     ui(new Ui::DataPage)
 {
     ui->setupUi(this);
+
     connect(ui->menuButton, &QPushButton::released, this, &DataPage::menuButtonClicked);
+    connect(ui->scanList, &QListView::clicked, this, &DataPage::scanListItemClicked);
 
     // set default widget
     ui->stackedWidget->setCurrentWidget(ui->noData);
@@ -52,7 +54,7 @@ void DataPage::setupOrganTable() {
 
     // set column sizes
     ui->organTable->setColumnWidth(0, 30); // First column width
-    ui->organTable->setColumnWidth(2, 45); // Second column width
+    ui->organTable->setColumnWidth(2, 60); // Second column width
 
 }
 
@@ -80,12 +82,17 @@ void DataPage::loadForProfile(Profile* p) {
 
     ui->scanList->setModel(scanListContent);
 
+}
 
+void DataPage::scanListItemClicked(const QModelIndex& i) {
+    QString date = scanListContent->data(i, Qt::DisplayRole).toString();
+    loadHeatmap(date);
 }
 
 void DataPage::loadHeatmap(QString scanDate) {
 
     ui->currScanLabel->setText("Showing data for scan taken on <b>" + scanDate + "</b>");
+    // todo: get diagnoses based on scanDate
     for (int i = 0; i < NUM_ORGANS; i++) {
 
         // set heatmap
@@ -94,6 +101,5 @@ void DataPage::loadHeatmap(QString scanDate) {
         organTableContent->setItem(i, 2, heatmapItem);
 
     }
-
 
 }
