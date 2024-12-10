@@ -111,15 +111,16 @@ void AppManager::initializeOrgans() {
         {"Lungs", ":/images/1-lungs.png"},
         {"Heart Rate", ":/images/2-heartrate.png"},
         {"Heart", ":/images/3-heart.png"},
-        {"Large Intestine", ":/images/4-largeintestine.png"},
         {"Small Intestine", ":/images/5-smallintestine.png"},
         {"Immune System", ":/images/6-immunesystem.png"},
+        {"Large Intestine", ":/images/4-largeintestine.png"},       
         {"Pancreas", ":/images/7-pancreas.png"},
         {"Liver", ":/images/8-liver.png"},
         {"Kidneys", ":/images/9-kidneys.png"},
         {"Bladder", ":/images/10-bladder.png"},
-        {"Stomach", ":/images/11-stomach.png"},
         {"Gallbladder", ":/images/12-gallbladder.png"},
+        {"Stomach", ":/images/11-stomach.png"}
+        ,
     };
 }
 
