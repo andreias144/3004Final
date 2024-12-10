@@ -1,4 +1,6 @@
 #include "AppManager.h"
+#include <QMessageBox>
+#include <QDebug>
 
 AppManager::AppManager() : activeProfile(nullptr) {
     initializeMeasurementPoints();
@@ -10,6 +12,7 @@ void AppManager::addProfile(const QString& name, int age, double height, double 
 
     profiles.push_back(std::move(newProfile));
     activeProfile = profiles.back().get();
+
 
 }
 
@@ -52,6 +55,13 @@ void AppManager::triggerScan() {
     std::vector<MeasurementPoint> points = getMeasurementPoints();
     Scan scan = scanner.performScan(points, *activeProfile);
     scanEvaluator.evaluateScan(scan, measurementPoints);
+
+    if (device->getBatteryLevel() - 48 <= 0) {
+
+        qInfo("Cant do scan");
+
+        return;
+    }
     activeProfile->addScan(scan);
 
 }

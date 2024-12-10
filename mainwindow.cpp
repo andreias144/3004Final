@@ -75,6 +75,7 @@ void MainWindow::showProfilePage() {
 void MainWindow::showMenuPage() {
 //     Prevents user from accessing menu if they havent made a profile yet
     if (!appManager->getActiveProfile()) {
+
         QMessageBox::warning(this, "No Profile", "Create a profile before accessing the menu");
         showProfilePage();
         return;
@@ -89,6 +90,14 @@ void MainWindow::showDataPage() {
 }
 
 void MainWindow::showScanPage() {
+
+    if (device->getBatteryLevel() == 0) {
+
+        QMessageBox::warning(this, "Device out of battery", "The RadoTech device is out of battery. Please charge the device before attempting to scan.");
+        return;
+    }
+
+
     appManager->triggerScan();
     scanPage->scanInit();
     advancePoint();
